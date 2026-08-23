@@ -53,6 +53,10 @@
       --accent-bright: #6b9fff;
       --accent-dim: rgba(74, 127, 255, 0.10);
       --accent-glow: rgba(74, 127, 255, 0.18);
+      --env-r: 74;
+      --env-g: 127;
+      --env-b: 255;
+      --env-alpha: 0.055;
       --radius: 14px;
       --nav-h: 64px;
     }
@@ -103,6 +107,15 @@
       inset: 0;
       z-index: 0;
       pointer-events: none;
+    }
+
+    #space-atmosphere {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background: radial-gradient(circle at 58% 42%, rgba(var(--env-r), var(--env-g), var(--env-b), var(--env-alpha)), transparent 58%);
+      opacity: 1;
     }
 
     /* ── Nav ── */
@@ -166,9 +179,7 @@
       inset: 0;
       z-index: 1;
       pointer-events: none;
-      background:
-        radial-gradient(ellipse 55% 55% at 75% 15%, rgba(50, 90, 255, 0.10) 0%, transparent 70%),
-        radial-gradient(ellipse 40% 40% at 20% 75%, rgba(100, 60, 200, 0.07) 0%, transparent 60%);
+      background: radial-gradient(ellipse 55% 55% at 75% 15%, rgba(50, 90, 255, 0.10) 0%, transparent 70%);
     }
 
     .hero-content {
@@ -379,6 +390,16 @@
     }
 
     /* ── Extracurriculars ── */
+    .extra-heading,
+    .skills-heading {
+      margin-bottom: 54px;
+      color: #fff;
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 5vw, 5rem);
+      font-weight: 400;
+      line-height: 1.05;
+    }
+
     .extra-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -408,7 +429,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse 80% 80% at 0% 100%, var(--accent-glow) 0%, transparent 60%);
+      background: radial-gradient(ellipse 72% 78% at 50% 50%, var(--accent-glow) 0%, transparent 62%);
       opacity: 0;
       transition: opacity .4s;
     }
@@ -417,7 +438,8 @@
       background: var(--surface2);
     }
 
-    .extra-item:hover::before {
+    .extra-item:hover::before,
+    .extra-item:focus-within::before {
       opacity: 1;
     }
 
@@ -450,15 +472,6 @@
     }
 
     /* ── Skills ── */
-    .skills-heading {
-      margin-bottom: 54px;
-      color: #fff;
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2.4rem, 5vw, 5rem);
-      font-weight: 400;
-      line-height: 1.05;
-    }
-
     .skills-list {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -972,21 +985,17 @@
       width: 12px;
       height: 12px;
       opacity: 0;
+      border-radius: 50%;
+      background: var(--accent-bright);
+      box-shadow: 0 0 12px rgba(74, 127, 255, .2);
+      mix-blend-mode: normal;
       transform: translate3d(-80px, -80px, 0) translate(-50%, -50%) scale(1);
-      transition: opacity .2s ease, background-color .2s ease, box-shadow .2s ease;
+      transition: opacity .2s ease, background-color .2s ease;
       will-change: transform;
     }
 
     #cursor.active {
       opacity: .9;
-    }
-
-    #cursor.hover {
-      width: 12px;
-      height: 12px;
-      opacity: .62;
-      background: rgba(132, 216, 255, .82);
-      box-shadow: 0 0 0 9px rgba(74, 127, 255, .12);
     }
 
     nav {
@@ -1146,7 +1155,7 @@
     /* ── Projects ── */
     .projects-intro {
       display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(260px, .8fr);
+      grid-template-columns: minmax(0, 1fr) auto;
       align-items: end;
       gap: 64px;
       margin-bottom: 54px;
@@ -1166,7 +1175,9 @@
     }
 
     .projects-intro p {
-      max-width: 420px;
+      max-width: none;
+      justify-self: end;
+      white-space: nowrap;
       color: var(--muted);
       font-size: 1rem;
     }
@@ -1178,8 +1189,13 @@
     }
 
     .project-card {
+      --spot-x: 50%;
+      --spot-y: 42%;
+      --spot-opacity: 0;
+      --card-rgb: 74, 127, 255;
       grid-column: span 6;
       min-width: 0;
+      position: relative;
       display: flex;
       flex-direction: column;
       overflow: hidden;
@@ -1187,6 +1203,30 @@
       border-radius: var(--radius);
       background: rgba(11, 11, 26, .88);
       transition: transform .4s cubic-bezier(.22, 1, .36, 1), border-color .35s ease, background-color .35s ease, box-shadow .35s ease;
+    }
+
+    .project-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background: radial-gradient(420px circle at var(--spot-x) var(--spot-y), rgba(var(--card-rgb), .18), transparent 62%);
+      opacity: var(--spot-opacity);
+      transition: opacity .3s ease;
+    }
+
+    .project-card > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .project-soterios {
+      --card-rgb: 48, 96, 220;
+    }
+
+    .project-isles {
+      --card-rgb: 45, 150, 162;
     }
 
     .project-soterios {
@@ -1207,10 +1247,10 @@
 
     .project-card:hover,
     .project-card:focus-within {
-      transform: translateY(-4px);
-      border-color: rgba(107, 159, 255, .25);
-      background: rgba(15, 15, 34, .94);
-      box-shadow: 0 18px 50px rgba(0, 0, 0, .18);
+      transform: translateY(-5px);
+      border-color: rgba(var(--card-rgb), .34);
+      background: rgba(15, 15, 34, .96);
+      box-shadow: 0 18px 50px rgba(0, 0, 0, .2), 0 0 28px rgba(var(--card-rgb), .055);
     }
 
     .project-visual {
@@ -1222,7 +1262,7 @@
       overflow: hidden;
       border-bottom: 1px solid var(--border);
       background:
-        radial-gradient(circle at 72% 38%, rgba(74, 127, 255, .18), transparent 24%),
+        radial-gradient(circle at 50% 50%, rgba(74, 127, 255, .18), transparent 24%),
         linear-gradient(135deg, rgba(74, 127, 255, .08), rgba(11, 11, 26, .3));
     }
 
@@ -1249,10 +1289,19 @@
     }
 
     .project-visual i {
-      position: relative;
+      position: absolute;
+      top: 50%;
+      left: 50%;
       z-index: 1;
+      display: grid;
+      width: 1.15em;
+      height: 1.15em;
+      place-items: center;
+      line-height: 1;
       color: rgba(132, 216, 255, .78);
       font-size: 2.2rem;
+      transform: translate(-50%, -50%);
+      transform-origin: center;
       transition: transform .45s cubic-bezier(.22, 1, .36, 1), color .3s ease;
     }
 
@@ -1262,7 +1311,7 @@
 
     .project-card:hover .project-visual i,
     .project-card:focus-within .project-visual i {
-      transform: translateY(-3px) scale(1.03);
+      transform: translate(-50%, -50%) scale(1.03);
       color: var(--accent-bright);
     }
 
@@ -1273,6 +1322,7 @@
       color: rgba(228, 232, 245, .35);
       font-size: .7rem;
       letter-spacing: .16em;
+      transition: transform .4s cubic-bezier(.22, 1, .36, 1), color .3s ease;
     }
 
     .project-body {
@@ -1301,6 +1351,7 @@
       font-size: clamp(1.55rem, 2.7vw, 2.35rem);
       font-weight: 400;
       line-height: 1.12;
+      transition: transform .4s cubic-bezier(.22, 1, .36, 1), color .3s ease;
     }
 
     .project-desc {
@@ -1326,6 +1377,38 @@
       color: rgba(228, 232, 245, .62);
       font-size: .68rem;
       letter-spacing: .04em;
+      transition: transform .4s cubic-bezier(.22, 1, .36, 1), border-color .3s ease, background-color .3s ease, color .3s ease;
+    }
+
+    .project-card:hover .project-number,
+    .project-card:focus-within .project-number {
+      transform: translate(2px, -2px);
+      color: rgba(228, 232, 245, .54);
+    }
+
+    .project-card:hover h3,
+    .project-card:focus-within h3 {
+      transform: translateX(2px);
+    }
+
+    .project-card:hover .project-tech li,
+    .project-card:focus-within .project-tech li {
+      transform: translateY(-2px);
+      border-color: rgba(var(--card-rgb), .24);
+      background: rgba(var(--card-rgb), .08);
+      color: rgba(228, 232, 245, .76);
+    }
+
+    .project-tech li:nth-child(2) {
+      transition-delay: 25ms;
+    }
+
+    .project-tech li:nth-child(3) {
+      transition-delay: 50ms;
+    }
+
+    .project-tech li:nth-child(4) {
+      transition-delay: 75ms;
     }
 
     .project-actions {
@@ -1353,11 +1436,47 @@
       transform: translateX(2px);
     }
 
-    @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
-      body,
-      a,
-      button {
+    .project-actions a [aria-hidden="true"] {
+      display: inline-block;
+      transition: transform .36s cubic-bezier(.22, 1, .36, 1);
+    }
+
+    .project-actions a:hover [aria-hidden="true"],
+    .project-actions a:focus-visible [aria-hidden="true"] {
+      transform: translate(3px, -3px);
+    }
+
+    .magnetic {
+      translate: var(--mag-x, 0px) var(--mag-y, 0px);
+      will-change: translate;
+    }
+
+    .magnetic [aria-hidden="true"] {
+      translate: var(--mag-icon-x, 0px) var(--mag-icon-y, 0px);
+    }
+
+    @media (min-width: 701px) and (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+      .cursor-enhanced body,
+      .cursor-enhanced a,
+      .cursor-enhanced button {
         cursor: none;
+      }
+    }
+
+    @media (hover: none), (pointer: coarse) {
+      .project-card:active {
+        transform: translateY(-2px);
+        border-color: rgba(var(--card-rgb), .25);
+      }
+    }
+
+    @media (max-width: 700px) {
+      #cursor {
+        display: none !important;
+      }
+
+      .magnetic {
+        translate: 0 0 !important;
       }
     }
 
@@ -1403,6 +1522,11 @@
       .projects-intro {
         grid-template-columns: 1fr;
         gap: 20px;
+      }
+
+      .projects-intro p {
+        justify-self: start;
+        white-space: normal;
       }
 
       .project-soterios,
@@ -1504,10 +1628,12 @@
       }
 
       .projects-intro h2,
+      .extra-heading,
       .skills-heading {
         font-size: clamp(2.3rem, 12vw, 3.5rem);
       }
 
+      .extra-heading,
       .skills-heading {
         margin-bottom: 40px;
       }
@@ -1578,10 +1704,28 @@
       }
 
       .project-card:hover,
+      .project-card:active,
       .extra-item:hover,
       .skill-item:hover,
       .btn:hover {
         transform: none;
+      }
+
+      .project-card:hover .project-number,
+      .project-card:focus-within .project-number,
+      .project-card:hover h3,
+      .project-card:focus-within h3,
+      .project-card:hover .project-tech li,
+      .project-card:focus-within .project-tech li,
+      .project-card:hover .project-visual i,
+      .project-card:focus-within .project-visual i,
+      .project-actions a:hover [aria-hidden="true"],
+      .project-actions a:focus-visible [aria-hidden="true"] {
+        transform: none;
+      }
+
+      .magnetic {
+        translate: 0 0 !important;
       }
     }
   </style>
@@ -1590,6 +1734,7 @@
 <body>
 
   <canvas id="space-canvas" aria-hidden="true"></canvas>
+  <div id="space-atmosphere" aria-hidden="true"></div>
   <div id="cursor" aria-hidden="true"></div>
   <div class="hero-three-wrap" aria-hidden="true">
     <canvas id="hero-three"></canvas>
@@ -1654,7 +1799,7 @@
           </div>
         </div>
       </div>
-      <div class="about-text reveal">
+      <div class="about-text">
         <p>I'm <span style="color:var(--text);">Christopher Rivera</span>, a high school student passionate about <span
             style="color:var(--text);">web development, programming, robotics,</span> and <span
             style="color:var(--text);">engineering.</span>. I love diving into things that challenge me and push me to
@@ -1668,7 +1813,7 @@
 
   <!-- ── Extracurriculars ── -->
   <section class="extra" id="extra">
-    <h2 class="section-label">Extracurriculars</h2>
+    <h2 class="extra-heading">Extracurriculars</h2>
     <div class="extra-grid reveal">
 
       <div class="extra-item">
@@ -1911,6 +2056,7 @@
       const Lenis = window.Lenis;
       const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
       const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
+      const interactivePointer = window.matchMedia('(min-width: 701px) and (hover: hover) and (pointer: fine)');
       const frameCallbacks = new Set();
 
       function chooseQualityProfile() {
@@ -1945,13 +2091,28 @@
         qualityName,
         quality: qualityProfiles[qualityName],
         antialias: true,
+        pointer: {
+          targetX: 0,
+          targetY: 0,
+          currentX: 0,
+          currentY: 0,
+          sphereTarget: 0,
+          sphereCurrent: 0,
+          inside: false
+        },
+        background: {
+          scrollDepth: 0
+        },
         sphere: {
           active: true,
           opacity: .9,
           spread: 0,
           rotationY: 0,
           tilt: 0,
-          cameraZ: 12
+          cameraZ: 12,
+          pulseSpread: 0,
+          pulseScale: 0,
+          pulseIntensity: 0
         },
         addFrame(callback) { frameCallbacks.add(callback); },
         removeFrame(callback) { frameCallbacks.delete(callback); }
@@ -2110,7 +2271,8 @@
         [copy.aboutP1, copy.aboutP2, copy.aboutP3].forEach((value, index) => {
           setHTML('.about-text p:nth-child(' + (index + 1) + ')', value);
         });
-        setText('#extra .section-label', copy.extraLabel);
+        if (runtime.refreshAboutTyping) runtime.refreshAboutTyping();
+        setText('#extra .extra-heading', copy.extraLabel);
         document.querySelectorAll('.extra-item').forEach((item, index) => {
           const values = copy.extra[index];
           if (!values) return;
@@ -2143,7 +2305,6 @@
         setText('#contact .section-label', copy.contactLabel);
         setHTML('.contact h2', copy.contactTitle);
         setText('.contact p', copy.contactText);
-
         try { localStorage.setItem('preferredLanguage', language); } catch (error) { }
         if (ScrollTrigger) requestAnimationFrame(() => ScrollTrigger.refresh(true));
       }
@@ -2177,7 +2338,9 @@
       let stars = [];
       let shootingStars = [];
       let lastAmbientFrame = 0;
-      let nextShootingStar = performance.now() + 3500;
+      let nextShootingStar = performance.now() + 5500;
+      const pointerLayerDistance = [1.5, 4, 7];
+      const scrollLayerDistance = [2, 5, 9];
 
       const randomBetween = (minimum, maximum) => minimum + Math.random() * (maximum - minimum);
 
@@ -2213,25 +2376,31 @@
 
         [
           { x: spaceWidth * .76, y: spaceHeight * .16, rx: spaceWidth * .38, ry: spaceHeight * .3, color: '28,55,180', alpha: .052 },
-          { x: spaceWidth * .2, y: spaceHeight * .72, rx: spaceWidth * .28, ry: spaceHeight * .28, color: '80,30,160', alpha: .04 },
           { x: spaceWidth * .5, y: spaceHeight * .46, rx: spaceWidth * .5, ry: spaceHeight * .5, color: '10,20,80', alpha: .024 }
         ].forEach((nebula) => paintNebula(staticContext, nebula));
 
         stars = [];
         const count = Math.min(700, Math.floor((spaceWidth * spaceHeight) / 3300));
         for (let index = 0; index < count; index += 1) {
+          const depthRoll = Math.random();
+          const depth = depthRoll < .56 ? 0 : depthRoll < .88 ? 1 : 2;
+          const depthScale = depth === 0 ? .78 : depth === 1 ? 1 : 1.18;
           stars.push({
             x: Math.random() * spaceWidth,
             y: Math.random() * spaceHeight,
-            radius: randomBetween(.3, 1.45),
+            radius: randomBetween(.3, 1.35) * depthScale,
             alpha: randomBetween(.22, .86),
             speed: randomBetween(.55, 1.45),
             phase: Math.random() * Math.PI * 2,
+            twinkle: randomBetween(.035, .1),
+            depth,
             blue: Math.random() < .16,
-            glow: false
+            glow: false,
+            bloomStart: 0,
+            nextBloom: Infinity
           });
         }
-        for (let index = 0; index < 7; index += 1) {
+        for (let index = 0; index < 5; index += 1) {
           stars.push({
             x: Math.random() * spaceWidth,
             y: Math.random() * spaceHeight,
@@ -2239,8 +2408,12 @@
             alpha: randomBetween(.5, .92),
             speed: randomBetween(.35, .8),
             phase: Math.random() * Math.PI * 2,
+            twinkle: randomBetween(.035, .075),
+            depth: 2,
             blue: true,
-            glow: true
+            glow: true,
+            bloomStart: 0,
+            nextBloom: performance.now() + randomBetween(4500, 14000)
           });
         }
         shootingStars = [];
@@ -2248,59 +2421,109 @@
       }
 
       function spawnShootingStar() {
+        const foreground = Math.random() < .18;
         shootingStars.push({
           x: randomBetween(0, spaceWidth),
           y: randomBetween(0, spaceHeight * .42),
-          length: randomBetween(90, 180),
-          speed: randomBetween(420, 680),
-          alpha: 1,
-          angle: Math.PI / 5
+          length: randomBetween(foreground ? 130 : 80, foreground ? 205 : 175),
+          speed: randomBetween(foreground ? 560 : 390, foreground ? 760 : 650),
+          brightness: randomBetween(.72, foreground ? 1 : .9),
+          width: randomBetween(foreground ? 1.35 : .85, foreground ? 1.75 : 1.35),
+          duration: randomBetween(.68, 1.05),
+          life: 0,
+          foreground,
+          angle: randomBetween(Math.PI / 5.6, Math.PI / 4.7)
         });
       }
 
-      function drawSpace(time, forceStatic) {
+      function drawSpace(time, forceStatic, deltaSeconds = 0) {
         if (!spaceContext) return;
         const seconds = time / 1000;
         spaceContext.clearRect(0, 0, spaceWidth, spaceHeight);
-        spaceContext.drawImage(staticLayer, 0, 0, staticLayer.width, staticLayer.height, 0, 0, spaceWidth, spaceHeight);
+        const scrollDepth = reducedMotion.matches ? 0 : runtime.background.scrollDepth;
+        const nebulaScale = 1 + scrollDepth * (window.innerWidth <= 700 ? .012 : .025);
+        const nebulaWidth = spaceWidth * nebulaScale;
+        const nebulaHeight = spaceHeight * nebulaScale;
+        spaceContext.drawImage(
+          staticLayer,
+          0,
+          0,
+          staticLayer.width,
+          staticLayer.height,
+          (spaceWidth - nebulaWidth) * .5,
+          (spaceHeight - nebulaHeight) * .5,
+          nebulaWidth,
+          nebulaHeight
+        );
 
-        stars.forEach((star) => {
-          const pulse = forceStatic || reducedMotion.matches
-            ? .72
-            : .46 + .54 * Math.abs(Math.sin(star.phase + seconds * star.speed));
-          const alpha = star.alpha * pulse;
+        const pointerX = interactivePointer.matches && !reducedMotion.matches ? runtime.pointer.currentX : 0;
+        const pointerY = interactivePointer.matches && !reducedMotion.matches ? runtime.pointer.currentY : 0;
+        for (let index = 0; index < stars.length; index += 1) {
+          const star = stars[index];
+          const twinkle = forceStatic || reducedMotion.matches
+            ? 1
+            : 1 - star.twinkle + star.twinkle * (.5 + .5 * Math.sin(star.phase + seconds * star.speed));
+          let bloom = 0;
+          if (star.glow && !forceStatic && !reducedMotion.matches) {
+            if (!star.bloomStart && time >= star.nextBloom) star.bloomStart = time;
+            if (star.bloomStart) {
+              const bloomProgress = (time - star.bloomStart) / 900;
+              if (bloomProgress >= 1) {
+                star.bloomStart = 0;
+                star.nextBloom = time + randomBetween(6500, 15000);
+              } else {
+                bloom = Math.sin(bloomProgress * Math.PI);
+              }
+            }
+          }
+          const alpha = star.alpha * twinkle * (1 + bloom * .45);
+          const x = star.x - pointerX * pointerLayerDistance[star.depth];
+          const y = star.y - pointerY * pointerLayerDistance[star.depth] + scrollDepth * scrollLayerDistance[star.depth];
           if (star.glow) {
-            const glowSize = star.radius * 10;
+            const glowSize = star.radius * (10 + bloom * 4);
             spaceContext.globalAlpha = alpha;
-            spaceContext.drawImage(glowSprite, star.x - glowSize / 2, star.y - glowSize / 2, glowSize, glowSize);
+            spaceContext.drawImage(glowSprite, x - glowSize / 2, y - glowSize / 2, glowSize, glowSize);
             spaceContext.globalAlpha = 1;
           }
           spaceContext.beginPath();
-          spaceContext.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+          spaceContext.arc(x, y, star.radius * (1 + bloom * .18), 0, Math.PI * 2);
           spaceContext.fillStyle = star.blue
             ? 'rgba(135,175,255,' + alpha + ')'
             : 'rgba(225,233,255,' + alpha + ')';
           spaceContext.fill();
-        });
+        }
 
         if (!forceStatic && !reducedMotion.matches) {
-          shootingStars = shootingStars.filter((star) => star.alpha > 0);
-          shootingStars.forEach((star) => {
+          for (let index = shootingStars.length - 1; index >= 0; index -= 1) {
+            const star = shootingStars[index];
+            star.life += deltaSeconds;
+            if (star.life >= star.duration) {
+              shootingStars.splice(index, 1);
+              continue;
+            }
+            const progress = star.life / star.duration;
+            const alpha = Math.sin(progress * Math.PI) * star.brightness;
             const dx = Math.cos(star.angle) * star.length;
             const dy = Math.sin(star.angle) * star.length;
             const gradient = spaceContext.createLinearGradient(star.x, star.y, star.x - dx, star.y - dy);
-            gradient.addColorStop(0, 'rgba(180,210,255,' + star.alpha + ')');
+            gradient.addColorStop(0, 'rgba(198,226,255,' + alpha + ')');
+            gradient.addColorStop(.22, 'rgba(155,198,255,' + (alpha * .52) + ')');
             gradient.addColorStop(1, 'rgba(180,210,255,0)');
             spaceContext.beginPath();
             spaceContext.moveTo(star.x, star.y);
             spaceContext.lineTo(star.x - dx, star.y - dy);
             spaceContext.strokeStyle = gradient;
-            spaceContext.lineWidth = 1.25;
+            spaceContext.lineWidth = star.width;
             spaceContext.stroke();
-            star.x += Math.cos(star.angle) * star.speed / 30;
-            star.y += Math.sin(star.angle) * star.speed / 30;
-            star.alpha -= .024;
-          });
+            if (star.foreground) {
+              spaceContext.beginPath();
+              spaceContext.arc(star.x, star.y, 1.25, 0, Math.PI * 2);
+              spaceContext.fillStyle = 'rgba(224,240,255,' + alpha + ')';
+              spaceContext.fill();
+            }
+            star.x += Math.cos(star.angle) * star.speed * deltaSeconds;
+            star.y += Math.sin(star.angle) * star.speed * deltaSeconds;
+          }
         }
       }
 
@@ -2314,20 +2537,249 @@
       if (!reducedMotion.matches) {
         runtime.addFrame((time) => {
           if (!runtime.visible || time - lastAmbientFrame < 33) return;
+          const deltaSeconds = Math.min(.06, (time - lastAmbientFrame) / 1000);
           lastAmbientFrame = time;
           if (time >= nextShootingStar) {
             spawnShootingStar();
-            nextShootingStar = time + randomBetween(7000, 12000);
+            nextShootingStar = time + randomBetween(10000, 18000);
           }
-          drawSpace(time, false);
+          drawSpace(time, false, deltaSeconds);
         });
       }
 
-      /* ── Interpolated custom cursor ── */
+      /* ── Shared pointer, sphere, project, cursor, and magnetic feedback ── */
+      const root = document.documentElement;
       const cursor = document.getElementById('cursor');
-      const cursorState = { targetX: -80, targetY: -80, currentX: -80, currentY: -80, visible: false };
-      if (finePointer.matches && !reducedMotion.matches) {
+      const sphereWrapper = document.querySelector('.hero-three-wrap');
+      const cursorState = {
+        targetX: -80,
+        targetY: -80,
+        currentX: -80,
+        currentY: -80,
+        visible: false,
+        mode: 'default'
+      };
+      let cachedSphereRect = null;
+      let sphereRectResetFrame = 0;
+
+      function setCursorMode(mode) {
+        if (cursorState.mode === mode) return;
+        cursorState.mode = mode;
+      }
+
+      function isSpherePoint(event) {
+        if (!sphereWrapper || runtime.sphere.opacity < .08 || window.scrollY > window.innerHeight * .95) return false;
+        if (event.target.closest('a, button')) return false;
+        if (!cachedSphereRect) {
+          cachedSphereRect = sphereWrapper.getBoundingClientRect();
+          cancelAnimationFrame(sphereRectResetFrame);
+          sphereRectResetFrame = requestAnimationFrame(() => { cachedSphereRect = null; });
+        }
+        const rect = cachedSphereRect;
+        const radius = Math.min(rect.width, rect.height) * .29;
+        const centerX = rect.left + rect.width * .5;
+        const centerY = rect.top + rect.height * .5;
+        const deltaX = event.clientX - centerX;
+        const deltaY = event.clientY - centerY;
+        return deltaX * deltaX + deltaY * deltaY <= radius * radius;
+      }
+
+      let pulseCooldownUntil = 0;
+      function triggerSpherePulse() {
+        const now = performance.now();
+        if (now < pulseCooldownUntil) return;
+        pulseCooldownUntil = now + 700;
+        runtime.sphere.active = true;
+
+        if (!gsap) {
+          runtime.sphere.pulseIntensity = .08;
+          window.setTimeout(() => { runtime.sphere.pulseIntensity = 0; }, 220);
+          return;
+        }
+
+        gsap.killTweensOf(runtime.sphere, 'pulseSpread,pulseScale,pulseIntensity');
+        if (reducedMotion.matches) {
+          gsap.timeline()
+            .to(runtime.sphere, { pulseIntensity: .08, duration: .09, ease: 'power1.out' })
+            .to(runtime.sphere, { pulseIntensity: 0, duration: .16, ease: 'power1.inOut' });
+          return;
+        }
+
+        const narrow = window.innerWidth <= 700;
+        gsap.timeline()
+          .to(runtime.sphere, {
+            pulseSpread: narrow ? .04 : .07,
+            pulseScale: narrow ? .028 : .045,
+            pulseIntensity: narrow ? .12 : .18,
+            duration: .16,
+            ease: 'power2.out'
+          })
+          .to(runtime.sphere, {
+            pulseSpread: 0,
+            pulseScale: 0,
+            pulseIntensity: 0,
+            duration: .5,
+            ease: 'elastic.out(1, .58)'
+          });
+      }
+
+      let tapStart = null;
+      document.addEventListener('pointerdown', (event) => {
+        if (!event.isPrimary || !isSpherePoint(event)) {
+          tapStart = null;
+          return;
+        }
+        tapStart = { x: event.clientX, y: event.clientY, time: performance.now(), id: event.pointerId };
+      }, { passive: true });
+      document.addEventListener('pointerup', (event) => {
+        if (!tapStart || tapStart.id !== event.pointerId) return;
+        const distance = Math.hypot(event.clientX - tapStart.x, event.clientY - tapStart.y);
+        const duration = performance.now() - tapStart.time;
+        if (distance <= 12 && duration <= 600 && isSpherePoint(event)) triggerSpherePulse();
+        tapStart = null;
+      }, { passive: true });
+      document.addEventListener('pointercancel', () => { tapStart = null; }, { passive: true });
+
+      const environmentThemes = [
+        { r: 48, g: 96, b: 220, alpha: .072 },
+        { r: 45, g: 150, b: 162, alpha: .068 },
+        { r: 75, g: 132, b: 255, alpha: .074 },
+        { r: 74, g: 127, b: 255, alpha: .055 }
+      ];
+      const defaultEnvironment = { r: 74, g: 127, b: 255, alpha: .055 };
+
+      function setEnvironment(theme) {
+        const values = theme || defaultEnvironment;
+        if (gsap && !reducedMotion.matches) {
+          gsap.to(root, {
+            '--env-r': values.r,
+            '--env-g': values.g,
+            '--env-b': values.b,
+            '--env-alpha': values.alpha,
+            duration: .55,
+            ease: 'power2.out',
+            overwrite: 'auto'
+          });
+        } else {
+          root.style.setProperty('--env-r', values.r);
+          root.style.setProperty('--env-g', values.g);
+          root.style.setProperty('--env-b', values.b);
+          root.style.setProperty('--env-alpha', values.alpha);
+        }
+      }
+
+      const projectCards = Array.from(document.querySelectorAll('.project-card'));
+      const projectsGrid = document.querySelector('.projects-grid');
+      projectCards.forEach((card, index) => {
+        const activate = () => setEnvironment(environmentThemes[index]);
+        const deactivate = () => {
+          if (!card.contains(document.activeElement)) setEnvironment(defaultEnvironment);
+        };
+        if (!reducedMotion.matches) {
+          card.addEventListener('pointerenter', () => { if (interactivePointer.matches) activate(); });
+          card.addEventListener('pointerleave', () => { if (interactivePointer.matches) deactivate(); });
+        }
+        card.addEventListener('focusin', () => {
+          activate();
+          if (card.classList.contains('project-card-feature')) {
+            card.style.setProperty('--spot-x', '50%');
+            card.style.setProperty('--spot-y', '42%');
+            card.style.setProperty('--spot-opacity', '.55');
+          }
+        });
+        card.addEventListener('focusout', (event) => {
+          if (!card.contains(event.relatedTarget)) {
+            setEnvironment(defaultEnvironment);
+            if (card.classList.contains('project-card-feature')) card.style.setProperty('--spot-opacity', '0');
+          }
+        });
+
+        if (card.classList.contains('project-card-feature') && !reducedMotion.matches) {
+          let spotlightRect = null;
+          card.addEventListener('pointerenter', () => {
+            if (!interactivePointer.matches) return;
+            spotlightRect = card.getBoundingClientRect();
+            card.style.setProperty('--spot-opacity', '.9');
+          });
+          card.addEventListener('pointermove', (event) => {
+            if (!interactivePointer.matches) return;
+            if (!spotlightRect) spotlightRect = card.getBoundingClientRect();
+            card.style.setProperty('--spot-x', (event.clientX - spotlightRect.left) + 'px');
+            card.style.setProperty('--spot-y', (event.clientY - spotlightRect.top) + 'px');
+          }, { passive: true });
+          card.addEventListener('pointerleave', () => {
+            spotlightRect = null;
+            card.style.setProperty('--spot-opacity', card.contains(document.activeElement) ? '.55' : '0');
+          });
+        }
+      });
+      if (projectsGrid) {
+        projectsGrid.addEventListener('mouseleave', () => {
+          if (!projectsGrid.contains(document.activeElement)) setEnvironment(defaultEnvironment);
+        });
+      }
+
+      const magneticElements = !reducedMotion.matches
+        ? Array.from(document.querySelectorAll('.hero-cta a[href="#contact"], .project-actions a, .contact-links a'))
+        : [];
+      const magneticActive = new Set();
+      const magneticStates = [];
+      magneticElements.forEach((element) => {
+        element.classList.add('magnetic');
+        const state = { element, rect: null, targetX: 0, targetY: 0, currentX: 0, currentY: 0 };
+        magneticStates.push(state);
+        element.addEventListener('pointerenter', () => {
+          if (!interactivePointer.matches) return;
+          state.rect = element.getBoundingClientRect();
+          magneticActive.add(state);
+        });
+        element.addEventListener('pointermove', (event) => {
+          if (!interactivePointer.matches) return;
+          if (!state.rect) state.rect = element.getBoundingClientRect();
+          const normalizedX = (event.clientX - (state.rect.left + state.rect.width * .5)) / Math.max(1, state.rect.width * .5);
+          const normalizedY = (event.clientY - (state.rect.top + state.rect.height * .5)) / Math.max(1, state.rect.height * .5);
+          state.targetX = Math.max(-1, Math.min(1, normalizedX)) * 6;
+          state.targetY = Math.max(-1, Math.min(1, normalizedY)) * 6;
+        }, { passive: true });
+        element.addEventListener('pointerleave', () => {
+          state.targetX = 0;
+          state.targetY = 0;
+          state.rect = null;
+          magneticActive.add(state);
+        });
+      });
+
+      function resetPointer() {
+        runtime.pointer.targetX = 0;
+        runtime.pointer.targetY = 0;
+        runtime.pointer.sphereTarget = 0;
+        runtime.pointer.inside = false;
+        cursorState.visible = false;
+        cursor.classList.remove('active');
+        setCursorMode('default');
+      }
+
+      function syncPointerEnhancement() {
+        const enabled = interactivePointer.matches && !reducedMotion.matches;
+        root.classList.toggle('cursor-enhanced', enabled);
+        if (!enabled) {
+          resetPointer();
+          setEnvironment(defaultEnvironment);
+          magneticStates.forEach((state) => {
+            state.targetX = 0;
+            state.targetY = 0;
+            magneticActive.add(state);
+          });
+          projectCards.forEach((card) => card.style.setProperty('--spot-opacity', '0'));
+        }
+      }
+
+      if (!reducedMotion.matches) {
         document.addEventListener('pointermove', (event) => {
+          if (!interactivePointer.matches) return;
+          runtime.pointer.targetX = (event.clientX / Math.max(1, window.innerWidth) - .5) * 2;
+          runtime.pointer.targetY = (event.clientY / Math.max(1, window.innerHeight) - .5) * 2;
+          runtime.pointer.inside = true;
           cursorState.targetX = event.clientX;
           cursorState.targetY = event.clientY;
           if (!cursorState.visible) {
@@ -2336,30 +2788,47 @@
             cursorState.visible = true;
             cursor.classList.add('active');
           }
+
+          const overSphere = isSpherePoint(event);
+          runtime.pointer.sphereTarget = overSphere ? 1 : 0;
+          if (overSphere) setCursorMode('sphere');
+          else if (event.target.closest('.project-card')) setCursorMode('project');
+          else if (event.target.closest('a, button')) setCursorMode('link');
+          else setCursorMode('default');
         }, { passive: true });
-        document.addEventListener('pointerover', (event) => {
-          if (event.target.closest('a, button, .extra-item, .skill-item, .project-card')) cursor.classList.add('hover');
-        });
-        document.addEventListener('pointerout', (event) => {
-          if (event.target.closest('a, button, .extra-item, .skill-item, .project-card')) cursor.classList.remove('hover');
-        });
-        document.documentElement.addEventListener('mouseleave', () => {
-          cursorState.visible = false;
-          cursor.classList.remove('active');
-        });
-        document.documentElement.addEventListener('mouseenter', () => {
-          if (cursorState.currentX >= 0) {
-            cursorState.visible = true;
-            cursor.classList.add('active');
+        document.documentElement.addEventListener('mouseleave', resetPointer);
+        document.documentElement.addEventListener('mouseenter', () => { runtime.pointer.inside = true; });
+        window.addEventListener('blur', resetPointer);
+      }
+      interactivePointer.addEventListener('change', syncPointerEnhancement);
+      syncPointerEnhancement();
+
+      runtime.addFrame(() => {
+        if (!runtime.visible) return;
+        runtime.pointer.currentX += (runtime.pointer.targetX - runtime.pointer.currentX) * .08;
+        runtime.pointer.currentY += (runtime.pointer.targetY - runtime.pointer.currentY) * .08;
+        runtime.pointer.sphereCurrent += (runtime.pointer.sphereTarget - runtime.pointer.sphereCurrent) * .1;
+
+        if (cursorState.visible) {
+          cursorState.currentX += (cursorState.targetX - cursorState.currentX) * .2;
+          cursorState.currentY += (cursorState.targetY - cursorState.currentY) * .2;
+          cursor.style.transform = 'translate3d(' + cursorState.currentX + 'px,' + cursorState.currentY + 'px,0) translate(-50%,-50%)';
+        }
+
+        magneticActive.forEach((state) => {
+          state.currentX += (state.targetX - state.currentX) * .16;
+          state.currentY += (state.targetY - state.currentY) * .16;
+          state.element.style.setProperty('--mag-x', state.currentX.toFixed(2) + 'px');
+          state.element.style.setProperty('--mag-y', state.currentY.toFixed(2) + 'px');
+          state.element.style.setProperty('--mag-icon-x', (state.currentX * .5).toFixed(2) + 'px');
+          state.element.style.setProperty('--mag-icon-y', (state.currentY * .5).toFixed(2) + 'px');
+          if (Math.abs(state.currentX) < .02 && Math.abs(state.currentY) < .02 && state.targetX === 0 && state.targetY === 0) {
+            state.currentX = 0;
+            state.currentY = 0;
+            magneticActive.delete(state);
           }
         });
-        runtime.addFrame(() => {
-          if (!cursorState.visible) return;
-          cursorState.currentX += (cursorState.targetX - cursorState.currentX) * .18;
-          cursorState.currentY += (cursorState.targetY - cursorState.currentY) * .18;
-          cursor.style.transform = 'translate3d(' + cursorState.currentX + 'px,' + cursorState.currentY + 'px,0) translate(-50%,-50%)';
-        });
-      }
+      });
 
       /* ── Lenis + GSAP coordinated motion ── */
       let lenis = null;
@@ -2400,18 +2869,120 @@
           .to('.hero-cta .btn', { opacity: 1, y: 0, duration: .55, stagger: .06 }, .38)
           .to(heroSphere, { opacity: sphereTargetOpacity, scale: 1, y: 0, duration: .84, ease: 'power4.out' }, .12);
 
-        const revealGroups = [
-          '.about-text',
-          '.stat',
-          '.extra-item',
-          '.project-card',
-          '.skill-item',
-          '.contact p',
-          '.contact-links'
+        let aboutTypingTimeline = null;
+        let aboutTypingComplete = false;
+
+        function clearAboutTypingTimeline() {
+          if (!aboutTypingTimeline) return;
+          if (aboutTypingTimeline.scrollTrigger) aboutTypingTimeline.scrollTrigger.kill();
+          aboutTypingTimeline.kill();
+          aboutTypingTimeline = null;
+        }
+
+        function restoreAboutText() {
+          document.querySelectorAll('.about-text .type-char').forEach((character) => {
+            character.replaceWith(document.createTextNode(character.textContent));
+          });
+          document.querySelectorAll('.about-text p').forEach((paragraph) => {
+            paragraph.removeAttribute('aria-label');
+            paragraph.normalize();
+          });
+        }
+
+        function buildAboutTyping() {
+          clearAboutTypingTimeline();
+          if (aboutTypingComplete) return;
+
+          const paragraphs = Array.from(document.querySelectorAll('.about-text p'));
+          const characters = [];
+          paragraphs.forEach((paragraph) => {
+            paragraph.setAttribute('aria-label', paragraph.textContent.trim());
+            const walker = document.createTreeWalker(paragraph, NodeFilter.SHOW_TEXT);
+            const textNodes = [];
+            while (walker.nextNode()) textNodes.push(walker.currentNode);
+
+            textNodes.forEach((textNode) => {
+              const fragment = document.createDocumentFragment();
+              Array.from(textNode.nodeValue).forEach((value) => {
+                const character = document.createElement('span');
+                character.className = 'type-char';
+                character.setAttribute('aria-hidden', 'true');
+                character.textContent = value;
+                fragment.appendChild(character);
+                characters.push(character);
+              });
+              textNode.replaceWith(fragment);
+            });
+          });
+
+          gsap.set(characters, { opacity: 0 });
+          aboutTypingTimeline = gsap.timeline({
+            scrollTrigger: {
+              trigger: '.about-text',
+              start: 'top 86%',
+              once: true
+            }
+          });
+          aboutTypingTimeline.to(characters, {
+            opacity: 1,
+            duration: .015,
+            stagger: .006,
+            ease: 'none',
+            onComplete: () => {
+              aboutTypingComplete = true;
+              restoreAboutText();
+              aboutTypingTimeline = null;
+            }
+          });
+        }
+
+        runtime.refreshAboutTyping = () => {
+          if (!aboutTypingComplete) buildAboutTyping();
+        };
+        buildAboutTyping();
+
+        const cardRevealGroups = [
+          { trigger: '.stats', items: '.stat' },
+          { trigger: '.extra-grid', items: '.extra-item' },
+          { trigger: '.projects-grid', items: '.project-card' },
+          { trigger: '.skills-list', items: '.skill-item' }
         ];
-        const revealElements = gsap.utils.toArray(revealGroups.join(','));
-        gsap.set(revealElements, { opacity: 0, y: 18 });
-        ScrollTrigger.batch(revealElements, {
+
+        function hideCards(items) {
+          gsap.killTweensOf(items);
+          gsap.set(items, { opacity: 0, y: 18 });
+        }
+
+        function revealCards(items, fromBottom) {
+          gsap.killTweensOf(items);
+          gsap.to(items, {
+            opacity: 1,
+            y: 0,
+            duration: .72,
+            stagger: { each: .055, from: fromBottom ? 'end' : 'start' },
+            ease: 'power3.out',
+            overwrite: true,
+            onComplete: () => gsap.set(items, { clearProps: 'transform' })
+          });
+        }
+
+        cardRevealGroups.forEach((group) => {
+          const items = gsap.utils.toArray(group.items);
+          hideCards(items);
+          ScrollTrigger.create({
+            trigger: group.trigger,
+            start: 'top bottom',
+            end: 'bottom top',
+            onEnter: () => revealCards(items, false),
+            onLeave: () => hideCards(items),
+            onEnterBack: () => revealCards(items, true),
+            onLeaveBack: () => hideCards(items)
+          });
+        });
+
+        const supportingReveals = gsap.utils.toArray('.contact p, .contact-links');
+        gsap.set(supportingReveals, { opacity: 0, y: 18 });
+        ScrollTrigger.batch(supportingReveals, {
           start: 'top 88%',
           once: true,
           onEnter: (items) => {
@@ -2421,11 +2992,7 @@
               duration: .72,
               stagger: .055,
               ease: 'power3.out',
-              overwrite: true,
-              onComplete: () => {
-                const cards = items.filter((item) => item.matches('.stat, .extra-item, .project-card, .skill-item'));
-                if (cards.length) gsap.set(cards, { clearProps: 'transform' });
-              }
+              overwrite: true
             });
           }
         });
@@ -2442,21 +3009,28 @@
           });
         });
 
-        gsap.utils.toArray('.about h2, .projects-intro h2, .skills-heading, .contact h2').forEach((heading) => {
-          gsap.fromTo(heading,
-            { opacity: .58, y: 22 },
-            {
-              opacity: 1,
-              y: 0,
-              ease: 'none',
-              scrollTrigger: {
-                trigger: heading,
-                start: 'top 92%',
-                end: 'top 58%',
-                scrub: .38
-              }
+        gsap.utils.toArray('.about h2, .extra-heading, .projects-intro h2, .skills-heading, .contact h2').forEach((heading) => {
+          gsap.set(heading, {
+            opacity: .32,
+            y: 28,
+            clipPath: 'inset(0 0 100% 0)',
+            willChange: 'transform, opacity, clip-path'
+          });
+          ScrollTrigger.create({
+            trigger: heading,
+            start: 'top 88%',
+            once: true,
+            onEnter: () => {
+              gsap.to(heading, {
+                opacity: 1,
+                y: 0,
+                clipPath: 'inset(0 0 0% 0)',
+                duration: .76,
+                ease: 'power4.out',
+                onComplete: () => gsap.set(heading, { clearProps: 'transform,opacity,clipPath,willChange' })
+              });
             }
-          );
+          });
         });
 
         gsap.to('.hero-glow', {
@@ -2464,6 +3038,18 @@
           opacity: .48,
           ease: 'none',
           scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: .45 }
+        });
+
+        gsap.to(runtime.background, {
+          scrollDepth: 1,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: document.body,
+            start: 'top top',
+            end: 'bottom bottom',
+            scrub: .8,
+            invalidateOnRefresh: true
+          }
         });
 
         let sphereMotionCreated = false;
@@ -2748,21 +3334,30 @@
         resizeScene();
 
         let reducedFrameRendered = false;
+        let reducedPulseSignature = -1;
         const renderScene = (time) => {
           if (!runtime.visible || !runtime.sphere.active) return;
-          if (runtime.reducedMotion.matches && reducedFrameRendered) return;
+          const pulseSignature = runtime.sphere.pulseSpread + runtime.sphere.pulseScale + runtime.sphere.pulseIntensity;
+          if (runtime.reducedMotion.matches && reducedFrameRendered && Math.abs(pulseSignature - reducedPulseSignature) < .0001) return;
 
           const seconds = time / 1000;
-          system.rotation.y = seconds * .16 + runtime.sphere.rotationY;
-          system.rotation.x = -.08 + runtime.sphere.tilt + Math.sin(seconds * .32) * .065;
+          const pointerX = runtime.pointer.currentX;
+          const pointerY = runtime.pointer.currentY;
+          const sphereProximity = runtime.pointer.sphereCurrent;
+          system.rotation.y = seconds * .16 + runtime.sphere.rotationY + pointerX * .12;
+          system.rotation.x = -.08 + runtime.sphere.tilt + Math.sin(seconds * .32) * .065 - pointerY * .07;
           system.rotation.z = -.16 + Math.sin(seconds * .24) * .05;
-          const idleScale = 1 + Math.sin(seconds * .7) * .014;
+          system.position.x = pointerX * .1;
+          system.position.y = -pointerY * .07;
+          const pointerScale = (Math.abs(pointerX) + Math.abs(pointerY)) * .002 + sphereProximity * .004;
+          const idleScale = 1 + Math.sin(seconds * .7) * .014 + pointerScale + runtime.sphere.pulseScale;
           system.scale.setScalar(idleScale);
-          camera.position.z = runtime.sphere.cameraZ;
-          material.uniforms.uSpread.value = runtime.sphere.spread;
-          material.uniforms.uOpacity.value = runtime.sphere.opacity * (.92 + Math.sin(seconds * 1.25) * .055);
+          camera.position.z = runtime.sphere.cameraZ - sphereProximity * .06;
+          material.uniforms.uSpread.value = runtime.sphere.spread + runtime.sphere.pulseSpread;
+          material.uniforms.uOpacity.value = runtime.sphere.opacity * (.92 + Math.sin(seconds * 1.25) * .055) * (1 + runtime.sphere.pulseIntensity);
           renderer.render(scene, camera);
           reducedFrameRendered = runtime.reducedMotion.matches;
+          reducedPulseSignature = pulseSignature;
         };
         runtime.addFrame(renderScene);
         renderScene(performance.now());
