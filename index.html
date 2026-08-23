@@ -5,6 +5,26 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Christopher Rivera</title>
+  <meta name="description" content="Christopher Rivera — programmer, web developer, robotics leader, and engineering student based in Chicago." />
+  <link rel="canonical" href="https://christopher-rivera.me/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://christopher-rivera.me/" />
+  <meta property="og:title" content="Christopher Rivera — Programmer · Web Developer" />
+  <meta property="og:description" content="Selected work across security, games, robotics, and the web." />
+  <meta property="og:image" content="https://christopher-rivera.me/images/og.png" />
+  <meta property="og:image:width" content="1731" />
+  <meta property="og:image:height" content="909" />
+  <meta property="og:image:alt" content="Christopher Rivera portfolio with a blue particle sphere on a dark cosmic background." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Christopher Rivera — Programmer · Web Developer" />
+  <meta name="twitter:description" content="Selected work across security, games, robotics, and the web." />
+  <meta name="twitter:image" content="https://christopher-rivera.me/images/og.png" />
+  <script>
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.documentElement.classList.add('motion-pending');
+      window.setTimeout(() => document.documentElement.classList.remove('motion-pending'), 1400);
+    }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="icon" type="image/png" href="images/favicon.png">
@@ -12,6 +32,7 @@
     href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;1,9..40,300&display=swap"
     rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.26/dist/lenis.css">
   <style>
     *,
     *::before,
@@ -165,13 +186,10 @@
       width: clamp(520px, 64vw, 940px);
       aspect-ratio: 1;
       pointer-events: none;
-      --field-opacity: 1;
-      opacity: 0;
       background:
         radial-gradient(circle at 50% 50%, rgba(120, 180, 255, 0.17), transparent 34%),
         radial-gradient(circle at 50% 50%, rgba(40, 90, 255, 0.1), transparent 62%);
       filter: drop-shadow(0 0 34px rgba(80, 150, 255, 0.2));
-      animation: heroThreeIn .9s .45s forwards, heroThreeDrift 11s ease-in-out infinite alternate;
       overflow: visible;
     }
 
@@ -195,8 +213,6 @@
       text-transform: uppercase;
       color: var(--accent-bright);
       margin-bottom: 28px;
-      opacity: 0;
-      animation: fadeUp .6s .2s forwards;
     }
 
     .hero-eyebrow::before {
@@ -214,8 +230,6 @@
       line-height: 1.04;
       letter-spacing: -0.02em;
       color: #fff;
-      opacity: 0;
-      animation: fadeUp .7s .35s forwards;
     }
 
     .hero h1 em {
@@ -228,8 +242,6 @@
       font-size: 1.05rem;
       color: var(--muted);
       max-width: 480px;
-      opacity: 0;
-      animation: fadeUp .7s .5s forwards;
     }
 
     .hero-cta {
@@ -237,8 +249,6 @@
       display: flex;
       gap: 16px;
       flex-wrap: wrap;
-      opacity: 0;
-      animation: fadeUp .7s .65s forwards;
     }
 
     .btn {
@@ -286,6 +296,7 @@
 
     .section-label {
       font-size: 0.7rem;
+      font-weight: 400;
       letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--muted);
@@ -311,10 +322,6 @@
     }
 
     /* ── About ── */
-    .about {
-      border-top: 1px solid var(--border);
-    }
-
     .about-inner {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -372,10 +379,6 @@
     }
 
     /* ── Extracurriculars ── */
-    .extra {
-      border-top: 1px solid var(--border);
-    }
-
     .extra-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -447,8 +450,13 @@
     }
 
     /* ── Skills ── */
-    .skills {
-      border-top: 1px solid var(--border);
+    .skills-heading {
+      margin-bottom: 54px;
+      color: #fff;
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 5vw, 5rem);
+      font-weight: 400;
+      line-height: 1.05;
     }
 
     .skills-list {
@@ -499,7 +507,6 @@
 
     /* ── Contact ── */
     .contact {
-      border-top: 1px solid var(--border);
       text-align: center;
     }
 
@@ -532,7 +539,6 @@
 
     /* ── Footer ── */
     footer {
-      border-top: 1px solid var(--border);
       padding: 32px 40px;
       display: flex;
       align-items: center;
@@ -550,52 +556,6 @@
 
     footer a:hover {
       color: var(--text);
-    }
-
-    /* ── Animations ── */
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(24px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes heroThreeIn {
-      from {
-        opacity: 0;
-        transform: translateY(18px) scale(0.96);
-      }
-
-      to {
-        opacity: var(--field-opacity);
-        transform: translateY(0) scale(1);
-      }
-    }
-
-    @keyframes heroThreeDrift {
-      from {
-        translate: 0 0;
-      }
-
-      to {
-        translate: -5px 7px;
-      }
-    }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity .65s ease, transform .65s ease;
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
     }
 
     /* ── Responsive ── */
@@ -622,7 +582,6 @@
         top: 4%;
         right: -68%;
         width: clamp(470px, 122vw, 680px);
-        --field-opacity: 0.58;
       }
 
       .about-inner,
@@ -885,7 +844,6 @@
         top: 10%;
         right: -82%;
         width: min(760px, 150vw);
-        --field-opacity: 0.42;
       }
 
       .hero-eyebrow {
@@ -983,16 +941,662 @@
         margin: 0 auto 56px;
       }
     }
+
+    /* ══════════════════════════════════════
+       PREMIUM MOTION + PROJECT SYSTEM
+    ══════════════════════════════════════ */
+    html {
+      scroll-behavior: auto;
+    }
+
+    body {
+      min-width: 320px;
+    }
+
+    .motion-pending nav,
+    .motion-pending .hero-eyebrow,
+    .motion-pending .hero h1,
+    .motion-pending .hero-sub,
+    .motion-pending .hero-cta,
+    .motion-pending .hero-three-wrap {
+      opacity: 0;
+    }
+
+    .motion-unavailable .hero-three-wrap {
+      position: absolute;
+    }
+
+    #cursor {
+      left: 0;
+      top: 0;
+      width: 12px;
+      height: 12px;
+      opacity: 0;
+      transform: translate3d(-80px, -80px, 0) translate(-50%, -50%) scale(1);
+      transition: opacity .2s ease, background-color .2s ease, box-shadow .2s ease;
+      will-change: transform;
+    }
+
+    #cursor.active {
+      opacity: .9;
+    }
+
+    #cursor.hover {
+      width: 12px;
+      height: 12px;
+      opacity: .62;
+      background: rgba(132, 216, 255, .82);
+      box-shadow: 0 0 0 9px rgba(74, 127, 255, .12);
+    }
+
+    nav {
+      display: grid;
+      grid-template-columns: auto minmax(240px, 1fr) auto;
+      gap: clamp(20px, 3vw, 54px);
+      padding: 0 clamp(24px, 3vw, 48px);
+      background: rgba(5, 5, 15, .78);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+
+    .nav-actions {
+      margin-left: 0;
+      gap: clamp(14px, 2vw, 28px);
+    }
+
+    .promo-line {
+      min-width: 0;
+      max-width: none;
+      margin: 0;
+      transform: none;
+      font-size: clamp(.76rem, 1.05vw, 1rem);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .nav-links {
+      gap: clamp(14px, 1.75vw, 28px);
+    }
+
+    .nav-links a {
+      position: relative;
+      display: inline-flex;
+      padding: 7px 0;
+      transition: color .25s ease;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 100%;
+      bottom: 2px;
+      height: 1px;
+      background: var(--accent-bright);
+      transition: right .3s cubic-bezier(.22, 1, .36, 1);
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a:focus-visible::after,
+    .nav-links a.active::after {
+      right: 0;
+    }
+
+    .nav-links a.active {
+      color: var(--text);
+    }
+
+    .hero-three-wrap {
+      position: fixed;
+      top: -17vh;
+      right: -3vw;
+      z-index: 1;
+      width: clamp(540px, 64vw, 940px);
+      aspect-ratio: 1;
+      pointer-events: none;
+      opacity: 1;
+      overflow: visible;
+      animation: none;
+      transform-origin: 58% 48%;
+      background:
+        radial-gradient(circle at 50% 50%, rgba(120, 180, 255, .15), transparent 34%),
+        radial-gradient(circle at 50% 50%, rgba(40, 90, 255, .08), transparent 62%);
+      filter: drop-shadow(0 0 26px rgba(80, 150, 255, .16));
+      will-change: transform, opacity;
+    }
+
+    #hero-three {
+      width: 140%;
+      height: 140%;
+    }
+
+    .hero-eyebrow,
+    .hero h1,
+    .hero-sub,
+    .hero-cta {
+      opacity: 1;
+      animation: none;
+    }
+
+    .hero-line {
+      display: inline-block;
+      overflow: hidden;
+      vertical-align: bottom;
+      padding: .02em .04em .09em 0;
+      margin-bottom: -.09em;
+    }
+
+    .hero-line > span {
+      display: inline-block;
+    }
+
+    .btn {
+      position: relative;
+      overflow: hidden;
+      transition: color .25s ease, background-color .25s ease, border-color .25s ease, box-shadow .3s ease, transform .3s cubic-bezier(.22, 1, .36, 1);
+    }
+
+    .btn:hover,
+    .btn:focus-visible {
+      transform: translateY(-2px);
+    }
+
+    .btn-arrow {
+      display: inline-block;
+      transition: transform .3s cubic-bezier(.22, 1, .36, 1);
+    }
+
+    .btn:hover .btn-arrow,
+    .btn:focus-visible .btn-arrow {
+      transform: translate(2px, -2px);
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 2px solid var(--accent-bright);
+      outline-offset: 4px;
+    }
+
+    .about,
+    .extra,
+    .projects,
+    .skills,
+    .contact {
+      background: linear-gradient(180deg, rgba(7, 7, 20, .16), rgba(5, 5, 15, .03) 24%, rgba(5, 5, 15, .08));
+    }
+
+    .extra-item,
+    .skill-item,
+    .stat {
+      transition: background-color .3s ease, transform .35s cubic-bezier(.22, 1, .36, 1), border-color .3s ease;
+    }
+
+    .extra-item:hover,
+    .skill-item:hover {
+      transform: translateY(-3px);
+    }
+
+    .reveal {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+
+    /* ── Projects ── */
+    .projects-intro {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(260px, .8fr);
+      align-items: end;
+      gap: 64px;
+      margin-bottom: 54px;
+    }
+
+    .projects-intro h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 5vw, 5rem);
+      font-weight: 400;
+      line-height: 1.05;
+      color: #fff;
+    }
+
+    .projects-intro h2 em {
+      color: var(--accent-bright);
+      font-style: italic;
+    }
+
+    .projects-intro p {
+      max-width: 420px;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .project-card {
+      grid-column: span 6;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: rgba(11, 11, 26, .88);
+      transition: transform .4s cubic-bezier(.22, 1, .36, 1), border-color .35s ease, background-color .35s ease, box-shadow .35s ease;
+    }
+
+    .project-soterios {
+      grid-column: span 7;
+    }
+
+    .project-isles {
+      grid-column: span 5;
+    }
+
+    .project-card-feature {
+      min-height: 450px;
+    }
+
+    .project-card-support {
+      min-height: 340px;
+    }
+
+    .project-card:hover,
+    .project-card:focus-within {
+      transform: translateY(-4px);
+      border-color: rgba(107, 159, 255, .25);
+      background: rgba(15, 15, 34, .94);
+      box-shadow: 0 18px 50px rgba(0, 0, 0, .18);
+    }
+
+    .project-visual {
+      position: relative;
+      min-height: 118px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border-bottom: 1px solid var(--border);
+      background:
+        radial-gradient(circle at 72% 38%, rgba(74, 127, 255, .18), transparent 24%),
+        linear-gradient(135deg, rgba(74, 127, 255, .08), rgba(11, 11, 26, .3));
+    }
+
+    .project-card-feature .project-visual {
+      min-height: 168px;
+    }
+
+    .project-visual::before,
+    .project-visual::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 150px;
+      height: 150px;
+      border: 1px solid rgba(107, 159, 255, .12);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .project-visual::after {
+      width: 96px;
+      height: 96px;
+    }
+
+    .project-visual i {
+      position: relative;
+      z-index: 1;
+      color: rgba(132, 216, 255, .78);
+      font-size: 2.2rem;
+      transition: transform .45s cubic-bezier(.22, 1, .36, 1), color .3s ease;
+    }
+
+    .project-card-feature .project-visual i {
+      font-size: 3rem;
+    }
+
+    .project-card:hover .project-visual i,
+    .project-card:focus-within .project-visual i {
+      transform: translateY(-3px) scale(1.03);
+      color: var(--accent-bright);
+    }
+
+    .project-number {
+      position: absolute;
+      top: 18px;
+      left: 20px;
+      color: rgba(228, 232, 245, .35);
+      font-size: .7rem;
+      letter-spacing: .16em;
+    }
+
+    .project-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 28px;
+    }
+
+    .project-card-feature .project-body {
+      padding: 34px;
+    }
+
+    .project-kicker {
+      margin-bottom: 12px;
+      color: var(--accent);
+      font-size: .67rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .project-card h3 {
+      margin-bottom: 14px;
+      color: #fff;
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.55rem, 2.7vw, 2.35rem);
+      font-weight: 400;
+      line-height: 1.12;
+    }
+
+    .project-desc {
+      max-width: 650px;
+      color: var(--muted);
+      font-size: .92rem;
+      line-height: 1.65;
+    }
+
+    .project-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 22px;
+      list-style: none;
+    }
+
+    .project-tech li {
+      padding: 5px 9px;
+      border: 1px solid rgba(74, 127, 255, .14);
+      border-radius: 999px;
+      background: rgba(74, 127, 255, .055);
+      color: rgba(228, 232, 245, .62);
+      font-size: .68rem;
+      letter-spacing: .04em;
+    }
+
+    .project-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin-top: auto;
+      padding-top: 26px;
+    }
+
+    .project-actions a {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--text);
+      text-decoration: none;
+      font-size: .78rem;
+      letter-spacing: .04em;
+      transition: color .25s ease, transform .3s cubic-bezier(.22, 1, .36, 1);
+    }
+
+    .project-actions a:hover,
+    .project-actions a:focus-visible {
+      color: var(--accent-bright);
+      transform: translateX(2px);
+    }
+
+    @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+      body,
+      a,
+      button {
+        cursor: none;
+      }
+    }
+
+    @media (max-width: 1100px) {
+      :root {
+        --nav-h: 98px;
+      }
+
+      nav {
+        grid-template-columns: auto 1fr;
+        grid-template-rows: 48px 34px;
+        align-items: center;
+        padding: 7px 24px 9px;
+        gap: 0 20px;
+      }
+
+      nav > .nav-logo:first-child {
+        grid-column: 1;
+        grid-row: 1;
+      }
+
+      .promo-line {
+        grid-column: 1 / 3;
+        grid-row: 2;
+        justify-self: center;
+        max-width: 760px;
+        text-align: center;
+      }
+
+      .nav-actions {
+        grid-column: 2;
+        grid-row: 1;
+        justify-self: end;
+      }
+
+      .hero-three-wrap {
+        top: -9vh;
+        right: -24vw;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .projects-intro {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .project-soterios,
+      .project-isles,
+      .project-card-support {
+        grid-column: span 6;
+        min-height: 380px;
+      }
+
+      .project-card-feature .project-visual,
+      .project-visual {
+        min-height: 132px;
+      }
+    }
+
+    @media (max-width: 700px) {
+      :root {
+        --nav-h: 142px;
+      }
+
+      nav {
+        grid-template-columns: minmax(0, 1fr) auto;
+        grid-template-rows: 38px 28px 42px;
+        height: var(--nav-h);
+        padding: 9px 16px 10px;
+        gap: 5px 12px;
+      }
+
+      nav > .nav-logo:first-child {
+        position: static;
+        display: block;
+        grid-column: 1;
+        grid-row: 1;
+        max-width: none;
+        transform: none;
+        justify-self: start;
+      }
+
+      .promo-line {
+        display: flex;
+        grid-column: 1 / 3;
+        grid-row: 2;
+        max-width: 100%;
+        font-size: .68rem;
+      }
+
+      .nav-actions {
+        display: contents;
+      }
+
+      .lang-toggle {
+        grid-column: 2;
+        grid-row: 1;
+        margin: 0;
+        justify-self: end;
+      }
+
+      .nav-links {
+        grid-column: 1 / 3;
+        grid-row: 3;
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 4px;
+        padding: 0;
+      }
+
+      .nav-links a {
+        min-height: 36px;
+        padding: 0 2px;
+        align-items: center;
+        justify-content: center;
+        border-radius: 999px;
+        background: rgba(11, 11, 26, .5);
+        font-size: .64rem;
+        letter-spacing: .01em;
+      }
+
+      .nav-links a::after {
+        display: none;
+      }
+
+      .nav-links a.active {
+        background: rgba(74, 127, 255, .12);
+        color: var(--accent-bright);
+      }
+
+      .hero {
+        min-height: 100svh;
+        padding-top: calc(var(--nav-h) + 34px);
+      }
+
+      .hero-three-wrap {
+        top: 13vh;
+        right: -83vw;
+        width: min(760px, 154vw);
+        opacity: .46;
+        filter: drop-shadow(0 0 18px rgba(80, 150, 255, .12));
+      }
+
+      .projects-intro h2,
+      .skills-heading {
+        font-size: clamp(2.3rem, 12vw, 3.5rem);
+      }
+
+      .skills-heading {
+        margin-bottom: 40px;
+      }
+
+      .project-soterios,
+      .project-isles,
+      .project-card-support {
+        grid-column: 1 / -1;
+        min-height: 0;
+      }
+
+      .project-card-feature .project-body,
+      .project-body {
+        padding: 26px 22px;
+      }
+
+      .project-card-feature .project-visual,
+      .project-visual {
+        min-height: 112px;
+      }
+
+      .project-card-feature .project-visual i,
+      .project-visual i {
+        font-size: 2.2rem;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .nav-logo {
+        font-size: .88rem;
+      }
+
+      .promo-line {
+        font-size: .6rem;
+      }
+
+      .nav-links a {
+        font-size: .59rem;
+      }
+
+      .hero h1 {
+        font-size: clamp(2.65rem, 17vw, 4rem);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+      }
+
+      #cursor {
+        display: none !important;
+      }
+
+      .hero-three-wrap {
+        position: absolute;
+        opacity: .38;
+        will-change: auto;
+      }
+
+      .project-card:hover,
+      .extra-item:hover,
+      .skill-item:hover,
+      .btn:hover {
+        transform: none;
+      }
+    }
   </style>
 </head>
 
 <body>
 
-  <canvas id="space-canvas"></canvas>
-  <div id="cursor"></div>
+  <canvas id="space-canvas" aria-hidden="true"></canvas>
+  <div id="cursor" aria-hidden="true"></div>
+  <div class="hero-three-wrap" aria-hidden="true">
+    <canvas id="hero-three"></canvas>
+  </div>
 
   <!-- ── Navigation ── -->
-  <nav>
+  <nav aria-label="Primary navigation">
     <a href="#" class="nav-logo">Christopher Rivera</a>
     <a href="#contact" class="nav-logo promo-line" data-i18n="promo">Offering free website designs - let's build
       something great together.</a>
@@ -1000,6 +1604,7 @@
       <ul class="nav-links">
         <li><a href="#about" data-i18n="navAbout">About</a></li>
         <li><a href="#extra" data-i18n="navActivities">Activities</a></li>
+        <li><a href="#projects" data-i18n="navProjects">Projects</a></li>
         <li><a href="#skills" data-i18n="navSkills">Skills</a></li>
         <li><a href="#contact" data-i18n="navContact">Contact</a></li>
       </ul>
@@ -1013,16 +1618,13 @@
   <!-- ── Hero ── -->
   <section class="hero">
     <div class="hero-glow"></div>
-    <div class="hero-three-wrap" aria-hidden="true">
-      <canvas id="hero-three"></canvas>
-    </div>
     <div class="hero-content">
       <div class="hero-eyebrow">Programmer · Web Developer</div>
-      <h1>Christopher<br><em>Rivera.</em></h1>
+      <h1><span class="hero-line"><span>Christopher</span></span><br><span class="hero-line"><span><em>Rivera.</em></span></span></h1>
       <p class="hero-sub">Based in Chicago. - Aiming to create influence everywhere.</p>
       <div class="hero-cta">
-        <a href="#skills" class="btn btn-primary">Skills↓</a>
-        <a href="#contact" class="btn btn-ghost">Contact me</a>
+        <a href="#skills" class="btn btn-primary"><span data-i18n="heroSkills">Skills</span><span class="btn-arrow" aria-hidden="true">↓</span></a>
+        <a href="#contact" class="btn btn-ghost"><span data-i18n="heroContact">Contact me</span><span class="btn-arrow" aria-hidden="true">↘</span></a>
       </div>
     </div>
   </section>
@@ -1066,7 +1668,7 @@
 
   <!-- ── Extracurriculars ── -->
   <section class="extra" id="extra">
-    <div class="section-label">Extracurriculars</div>
+    <h2 class="section-label">Extracurriculars</h2>
     <div class="extra-grid reveal">
 
       <div class="extra-item">
@@ -1136,9 +1738,86 @@
     </div>
   </section>
 
+  <!-- ── Projects ── -->
+  <section class="projects" id="projects">
+    <div class="section-label">Selected Projects</div>
+    <div class="projects-intro">
+      <h2>Ideas shaped into<br><em>working systems.</em></h2>
+      <p>Selected builds across security, games, robotics, and the web.</p>
+    </div>
+    <div class="projects-grid">
+      <article class="project-card project-card-feature project-soterios" data-project="0">
+        <div class="project-visual" aria-hidden="true">
+          <span class="project-number">01</span>
+          <i class="fa-solid fa-shield-halved"></i>
+        </div>
+        <div class="project-body">
+          <div class="project-kicker">Featured · Open Source</div>
+          <h3>Soterios</h3>
+          <p class="project-desc">An open-source, local-first desktop security suite for malware scanning, system audits, and maintenance.</p>
+          <ul class="project-tech" aria-label="Technologies"><li>JavaScript</li><li>Electron</li><li>Node.js</li></ul>
+          <div class="project-actions">
+            <a href="https://github.com/chrisriv10/Soterios" target="_blank" rel="noopener noreferrer"><span class="project-source-label">View on GitHub</span><span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card project-card-feature project-isles" data-project="1">
+        <div class="project-visual" aria-hidden="true">
+          <span class="project-number">02</span>
+          <i class="fa-solid fa-gamepad"></i>
+        </div>
+        <div class="project-body">
+          <div class="project-kicker">Featured · Game</div>
+          <h3>Isles of Inconstance</h3>
+          <p class="project-desc">Farm, fight, and explore an island where every crop, animal, and world is procedurally generated.</p>
+          <ul class="project-tech" aria-label="Technologies"><li>Godot</li><li>GDScript</li><li>Procedural Generation</li></ul>
+          <div class="project-actions">
+            <a href="https://chrisriv10.itch.io/isles-of-inconstance" target="_blank" rel="noopener noreferrer"><span class="project-live-label">Play game</span><span aria-hidden="true">↗</span></a>
+            <a href="https://github.com/chrisriv10/Isles-of-Inconstance" target="_blank" rel="noopener noreferrer"><span class="project-source-label">View on GitHub</span><span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card project-card-support" data-project="2">
+        <div class="project-visual" aria-hidden="true">
+          <span class="project-number">03</span>
+          <i class="fa-solid fa-robot"></i>
+        </div>
+        <div class="project-body">
+          <div class="project-kicker">Robotics · Web</div>
+          <h3>Monty Pythons FRC 2151</h3>
+          <p class="project-desc">The official website for FRC Team 2151, built to share the team, its work, and its competition story.</p>
+          <ul class="project-tech" aria-label="Technologies"><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>
+          <div class="project-actions">
+            <a href="https://chrisriv10.github.io/montypythons2151.github.io/" target="_blank" rel="noopener noreferrer"><span class="project-live-label">View site</span><span aria-hidden="true">↗</span></a>
+            <a href="https://github.com/chrisriv10/montypythons2151.github.io" target="_blank" rel="noopener noreferrer"><span class="project-source-label">View on GitHub</span><span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card project-card-support" data-project="3">
+        <div class="project-visual" aria-hidden="true">
+          <span class="project-number">04</span>
+          <i class="fa-solid fa-globe"></i>
+        </div>
+        <div class="project-body">
+          <div class="project-kicker">Interactive · Web</div>
+          <h3>Personal Website</h3>
+          <p class="project-desc">An interactive personal portfolio combining a cosmic visual system with WebGL and scroll-directed motion.</p>
+          <ul class="project-tech" aria-label="Technologies"><li>Three.js</li><li>GSAP</li><li>Lenis</li></ul>
+          <div class="project-actions">
+            <a href="https://christopher-rivera.me" target="_blank" rel="noopener noreferrer"><span class="project-live-label">View site</span><span aria-hidden="true">↗</span></a>
+            <a href="https://github.com/chrisriv10/chrisriv10.github.io" target="_blank" rel="noopener noreferrer"><span class="project-source-label">View on GitHub</span><span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
   <!-- ── Skills ── -->
   <section class="skills" id="skills">
-    <div class="section-label">My Skills</div>
+    <h2 class="skills-heading">My Skills</h2>
     <div class="skills-list reveal">
 
       <div class="skill-item">
@@ -1208,510 +1887,891 @@
     <p class="reveal">Have an opportunity, idea, or just want to talk? I'm always open to a good conversation.</p>
     <div class="contact-links reveal">
       <a href="mailto:chrisrivera.5128@gmail.com" class="btn btn-primary">chrisrivera.5128@gmail.com ↗</a>
-      <a href="https://github.com/chrisriv10" class="btn btn-ghost">GitHub</a>
-      <a href="https://www.linkedin.com/in/christopher-rivera-cr/" class="btn btn-ghost">LinkedIn</a>
-      <a href="https://instagram.com/chrisriv_10" class="btn btn-ghost">Instagram</a>
+      <a href="https://github.com/chrisriv10" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">GitHub <span class="btn-arrow" aria-hidden="true">↗</span></a>
+      <a href="https://www.linkedin.com/in/christopher-rivera-cr/" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">LinkedIn <span class="btn-arrow" aria-hidden="true">↗</span></a>
+      <a href="https://instagram.com/chrisriv_10" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">Instagram <span class="btn-arrow" aria-hidden="true">↗</span></a>
     </div>
   </section>
 
   <!-- ── Footer ── -->
   <footer>
     <span>© 2026 Christopher Rivera.</span>
-    <span><a href="#">Back to top ↑</a></span>
+    <span><a href="#"><span data-i18n="backTop">Back to top</span> <span class="btn-arrow" aria-hidden="true">↑</span></a></span>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.3.26/dist/lenis.min.js"></script>
   <script>
-    /* ══════════════════════════════════════
-       ANIMATED STAR FIELD + NEBULA
-    ══════════════════════════════════════ */
-    const canvas = document.getElementById('space-canvas');
-    const ctx = canvas.getContext('2d');
+    (() => {
+      'use strict';
 
-    let W, H, stars = [], nebulas = [], shootingStars = [];
+      const gsap = window.gsap;
+      const ScrollTrigger = window.ScrollTrigger;
+      const Lenis = window.Lenis;
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+      const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
+      const frameCallbacks = new Set();
 
-    function resize() {
-      W = canvas.width = window.innerWidth;
-      H = canvas.height = window.innerHeight;
-    }
+      function chooseQualityProfile() {
+        const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+        const renderedPixels = window.innerWidth * window.innerHeight * dpr * dpr;
+        const cores = Number(navigator.hardwareConcurrency) || 0;
+        const memory = Number(navigator.deviceMemory) || 0;
+        let score = 0;
 
-    function randBetween(a, b) { return a + Math.random() * (b - a); }
+        if (renderedPixels < 1600000) score += 1;
+        if (renderedPixels > 3200000) score -= 1;
+        if (cores >= 8) score += 1;
+        else if (cores > 0 && cores <= 4) score -= 1;
+        if (memory >= 8) score += 1;
+        else if (memory > 0 && memory <= 4) score -= 1;
+        if (window.innerWidth < 700 && !finePointer.matches) score -= .25;
 
-    function initStars() {
-      stars = [];
-      const count = Math.floor((W * H) / 3200);
-      for (let i = 0; i < count; i++) {
-        stars.push({
-          x: Math.random() * W,
-          y: Math.random() * H,
-          r: randBetween(0.3, 1.6),
-          alpha: randBetween(0.2, 0.9),
-          pulse: randBetween(0.01, 0.035),
-          phase: Math.random() * Math.PI * 2,
-          color: Math.random() < 0.15
-            ? `rgba(120,160,255,`   // bluish stars
-            : `rgba(220,230,255,`,  // white stars
-        });
+        if (score >= 1.75) return 'high';
+        if (score <= -1) return 'safe';
+        return 'balanced';
       }
 
-      // a few larger "bright" stars
-      for (let i = 0; i < 8; i++) {
-        stars.push({
-          x: Math.random() * W,
-          y: Math.random() * H,
-          r: randBetween(1.5, 2.8),
-          alpha: randBetween(0.5, 1.0),
-          pulse: randBetween(0.008, 0.022),
-          phase: Math.random() * Math.PI * 2,
-          color: `rgba(180,210,255,`,
-          glow: true,
-        });
-      }
-    }
-
-    function initNebulas() {
-      nebulas = [
-        { x: W * 0.75, y: H * 0.15, rx: W * 0.38, ry: H * 0.30, r: 28, g: 55, b: 180, a: 0.055 },
-        { x: W * 0.20, y: H * 0.70, rx: W * 0.28, ry: H * 0.28, r: 80, g: 30, b: 160, a: 0.045 },
-        { x: W * 0.50, y: H * 0.45, rx: W * 0.50, ry: H * 0.50, r: 10, g: 20, b: 80, a: 0.025 },
-      ];
-    }
-
-    function spawnShootingStar() {
-      shootingStars.push({
-        x: randBetween(0, W),
-        y: randBetween(0, H * 0.5),
-        len: randBetween(80, 200),
-        speed: randBetween(8, 18),
-        alpha: 1,
-        angle: Math.PI / 5,
-      });
-    }
-
-    let t = 0;
-    function draw() {
-      ctx.clearRect(0, 0, W, H);
-
-      // nebula blobs
-      nebulas.forEach(n => {
-        const grad = ctx.createRadialGradient(n.x, n.y, 0, n.x, n.y, Math.max(n.rx, n.ry));
-        grad.addColorStop(0, `rgba(${n.r},${n.g},${n.b},${n.a})`);
-        grad.addColorStop(0.5, `rgba(${n.r},${n.g},${n.b},${n.a * 0.4})`);
-        grad.addColorStop(1, `rgba(${n.r},${n.g},${n.b},0)`);
-        ctx.save();
-        ctx.scale(n.rx / Math.max(n.rx, n.ry), n.ry / Math.max(n.rx, n.ry));
-        ctx.beginPath();
-        ctx.arc(n.x / (n.rx / Math.max(n.rx, n.ry)), n.y / (n.ry / Math.max(n.rx, n.ry)), Math.max(n.rx, n.ry), 0, Math.PI * 2);
-        ctx.fillStyle = grad;
-        ctx.fill();
-        ctx.restore();
-      });
-
-      // stars
-      stars.forEach(s => {
-        s.phase += s.pulse;
-        const a = s.alpha * (0.45 + 0.55 * Math.abs(Math.sin(s.phase)));
-        if (s.glow) {
-          const g = ctx.createRadialGradient(s.x, s.y, 0, s.x, s.y, s.r * 5);
-          g.addColorStop(0, `rgba(160,200,255,${a * 0.5})`);
-          g.addColorStop(1, `rgba(160,200,255,0)`);
-          ctx.beginPath();
-          ctx.arc(s.x, s.y, s.r * 5, 0, Math.PI * 2);
-          ctx.fillStyle = g;
-          ctx.fill();
+      const qualityProfiles = {
+        safe: { particleCount: 3600, pixelRatio: 1 },
+        balanced: { particleCount: 4400, pixelRatio: 1.25 },
+        high: { particleCount: 5200, pixelRatio: 1.5 }
+      };
+      const qualityName = chooseQualityProfile();
+      const runtime = {
+        visible: !document.hidden,
+        reducedMotion,
+        qualityName,
+        quality: qualityProfiles[qualityName],
+        antialias: true,
+        sphere: {
+          active: true,
+          opacity: .9,
+          spread: 0,
+          rotationY: 0,
+          tilt: 0,
+          cameraZ: 12
+        },
+        addFrame(callback) { frameCallbacks.add(callback); },
+        removeFrame(callback) { frameCallbacks.delete(callback); }
+      };
+      window.portfolioRuntime = runtime;
+      if (!gsap || !ScrollTrigger) {
+        document.documentElement.classList.remove('motion-pending');
+        document.documentElement.classList.add('motion-unavailable');
+        const fallbackHero = document.querySelector('.hero');
+        if (fallbackHero && 'IntersectionObserver' in window) {
+          const fallbackVisibility = new IntersectionObserver((entries) => {
+            runtime.sphere.active = entries[0].isIntersecting;
+          }, { rootMargin: '20% 0px' });
+          fallbackVisibility.observe(fallbackHero);
         }
-        ctx.beginPath();
-        ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-        ctx.fillStyle = s.color + a + ')';
-        ctx.fill();
-      });
-
-      // shooting stars
-      shootingStars = shootingStars.filter(ss => ss.alpha > 0);
-      shootingStars.forEach(ss => {
-        const dx = Math.cos(ss.angle) * ss.len;
-        const dy = Math.sin(ss.angle) * ss.len;
-        const grad = ctx.createLinearGradient(ss.x, ss.y, ss.x - dx, ss.y - dy);
-        grad.addColorStop(0, `rgba(180,210,255,${ss.alpha})`);
-        grad.addColorStop(1, `rgba(180,210,255,0)`);
-        ctx.beginPath();
-        ctx.moveTo(ss.x, ss.y);
-        ctx.lineTo(ss.x - dx, ss.y - dy);
-        ctx.strokeStyle = grad;
-        ctx.lineWidth = 1.5;
-        ctx.stroke();
-        ss.x += Math.cos(ss.angle) * ss.speed;
-        ss.y += Math.sin(ss.angle) * ss.speed;
-        ss.alpha -= 0.018;
-      });
-
-      t++;
-      if (t % 260 === 0) spawnShootingStar();
-
-      requestAnimationFrame(draw);
-    }
-
-    window.addEventListener('resize', () => { resize(); initStars(); initNebulas(); });
-    resize(); initStars(); initNebulas();
-    setTimeout(spawnShootingStar, 1800);
-    draw();
-
-    /* ── Custom cursor ── */
-    const cursor = document.getElementById('cursor');
-    document.addEventListener('mousemove', e => {
-      cursor.style.left = e.clientX + 'px';
-      cursor.style.top = e.clientY + 'px';
-    });
-    document.querySelectorAll('a, button, .extra-item, .skill-item').forEach(el => {
-      el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
-      el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
-    });
-    /* Language toggle */
-    const translations = {
-      en: {
-        promo: "Offering free website designs - let's build something great together.",
-        navAbout: 'About', navActivities: 'Activities', navSkills: 'Skills', navContact: 'Contact',
-        heroEyebrow: 'Programmer - Web Developer',
-        heroTitle: 'Christopher<br><em>Rivera.</em>',
-        heroSub: 'Based in Chicago. Aiming to create influence everywhere.',
-        heroSkills: 'Skills', heroContact: 'Contact me',
-        aboutLabel: 'About me',
-        aboutTitle: 'Ambitious,<br>driven, and<br>always learning.',
-        statSchool: 'Proviso Mathematics & Science Academy', statAwards: 'Awards Won', statLanguages: 'Programming Languages', statYears: 'Years of Programming/Engineering Experience',
-        aboutP1: `I'm <span style="color:var(--text);">Christopher Rivera</span>, a high school student passionate about <span style="color:var(--text);">web development, programming, robotics,</span> and <span style="color:var(--text);">engineering.</span> I love diving into things that challenge me and push me to grow.`,
-        aboutP2: `Whether it's leading a team, competing, or building a project from scratch, I bring full effort to everything I do.`,
-        aboutP3: `Outside of school, you'll find me playing soccer, cooking, or working on personal projects.`,
-        extraLabel: 'Extracurriculars',
-        extra: [
-          ['Robotics', 'FRC Chief Executive Officer / Programming Department Member', 'Leading with the robotics team, supporting strategy, and helping build reliable robot code for competition.'],
-          ['Coding', 'Programming', 'Building projects, learning new languages, and using code to turn ideas into working tools.'],
-          ['Engineering', 'CAD Design', 'Designing and creating 3D models for various engineering projects. (Autodesk Inventor Certified)'],
-          ['Athletics', 'Club Soccer', 'Competing, training consistently, and building discipline and teamwork on and off the field.'],
-          ['Academic', 'National Honor Society', 'Staying committed to scholarship, character, leadership, and service in the school community.'],
-          ['Technical', 'National Technical Honor Society', 'Recognizing technical growth, career-focused learning, and a commitment to high standards.'],
-          ['Service', 'Key Club', 'Working with others on service projects and finding practical ways to support the community.'],
-          ['Community', 'Community Service', 'Giving time to local efforts, helping where needed, and learning through real-world service.']
-        ],
-        skillsLabel: 'My Skills',
-        skills: [
-          ['Java', 'Writing structured, object-oriented programs for robotics and personal projects.'],
-          ['JavaScript', 'Creating interactive website features and adding behavior to front-end projects.'],
-          ['HTML & CSS', 'Building clean page structure, responsive layouts, and polished visual styles.'],
-          ['Python', 'Solving problems, automating tasks, and writing robot control scripts.'],
-          ['C++', 'Understanding lower-level programming concepts and building efficient logic.'],
-          ['Web Design', 'Designing pages that feel organized, readable, and visually engaging.'],
-          ['Leadership', 'Taking initiative, guiding teammates, and helping groups stay focused on a shared goal.'],
-          ['Teamwork', 'Collaborating well, listening to feedback, and contributing wherever the team needs help.'],
-          ['Problem Solving', 'Breaking problems down, debugging carefully, and staying patient when the answer takes work.']
-        ],
-        contactLabel: 'Contact Me', contactTitle: `Let's connect<br>and do something <em>great</em>.`, contactText: `Have an opportunity, idea, or just want to talk? I'm always open to a good conversation.`,
-        backTop: 'Back to top'
-      },
-      es: {
-        promo: 'Diseno sitios web gratis - construyamos algo excelente juntos.',
-        navAbout: 'Sobre mi', navActivities: 'Actividades', navSkills: 'Habilidades', navContact: 'Contacto',
-        heroEyebrow: 'Programador - Desarrollador web',
-        heroTitle: 'Christopher<br><em>Rivera.</em>',
-        heroSub: 'Basado en Chicago. Buscando crear influencia en todas partes.',
-        heroSkills: 'Habilidades', heroContact: 'Contactame',
-        aboutLabel: 'Sobre mi',
-        aboutTitle: 'Ambicioso,<br>dedicado, y<br>siempre aprendiendo.',
-        statSchool: 'Proviso Mathematics & Science Academy', statAwards: 'Premios ganados', statLanguages: 'Lenguajes de programacion', statYears: 'Anos de experiencia en programacion/ingenieria',
-        aboutP1: `Soy <span style="color:var(--text);">Christopher Rivera</span>, un estudiante de high school apasionado por el <span style="color:var(--text);">desarrollo web, la programacion, la robotica</span> y la <span style="color:var(--text);">ingenieria.</span> Me encanta explorar cosas que me retan y me ayudan a crecer.`,
-        aboutP2: `Ya sea liderando un equipo, compitiendo o creando un proyecto desde cero, doy mi maximo esfuerzo en todo lo que hago.`,
-        aboutP3: `Fuera de la escuela, me puedes encontrar jugando futbol, cocinando o trabajando en proyectos personales.`,
-        extraLabel: 'Actividades',
-        extra: [
-          ['Robotica', 'Director ejecutivo de FRC / Miembro del departamento de programacion', 'Lidero con el equipo de robotica, apoyo la estrategia y ayudo a crear codigo confiable para competencias.'],
-          ['Programacion', 'Programacion', 'Creo proyectos, aprendo nuevos lenguajes y uso codigo para convertir ideas en herramientas reales.'],
-          ['Ingenieria', 'Diseno CAD', 'Diseno y creo modelos 3D para varios proyectos de ingenieria. (Certificado en Autodesk Inventor)'],
-          ['Atletismo', 'Futbol de club', 'Compito, entreno con constancia y desarrollo disciplina y trabajo en equipo dentro y fuera de la cancha.'],
-          ['Academico', 'National Honor Society', 'Mantengo compromiso con el estudio, el caracter, el liderazgo y el servicio en la comunidad escolar.'],
-          ['Tecnico', 'National Technical Honor Society', 'Reconocimiento al crecimiento tecnico, aprendizaje profesional y compromiso con altos estandares.'],
-          ['Servicio', 'Key Club', 'Trabajo con otros en proyectos de servicio y busco maneras practicas de apoyar a la comunidad.'],
-          ['Comunidad', 'Servicio comunitario', 'Dedico tiempo a esfuerzos locales, ayudo donde se necesita y aprendo mediante servicio real.']
-        ],
-        skillsLabel: 'Mis Habilidades',
-        skills: [
-          ['Java', 'Escribo programas estructurados y orientados a objetos para robotica y proyectos personales.'],
-          ['JavaScript', 'Creo funciones interactivas para sitios web y agrego comportamiento a proyectos front-end.'],
-          ['HTML y CSS', 'Construyo estructura clara, disenos responsivos y estilos visuales pulidos.'],
-          ['Python', 'Resuelvo problemas, automatizo tareas y escribo scripts de control para robots.'],
-          ['C++', 'Comprendo conceptos de programacion de bajo nivel y creo logica eficiente.'],
-          ['Diseno web', 'Diseno paginas organizadas, legibles y visualmente atractivas.'],
-          ['Liderazgo', 'Tomo iniciativa, guio companeros y ayudo a que los grupos se enfoquen en una meta comun.'],
-          ['Trabajo en equipo', 'Colaboro bien, escucho comentarios y contribuyo donde el equipo necesita ayuda.'],
-          ['Resolucion de problemas', 'Divido los problemas, depuro con cuidado y mantengo paciencia cuando la respuesta requiere trabajo.']
-        ],
-        contactLabel: 'Contactame', contactTitle: `Conectemos<br>y hagamos algo <em>excelente</em>.`, contactText: `Tienes una oportunidad, una idea o solo quieres hablar? Siempre estoy abierto a una buena conversacion.`,
-        backTop: 'Volver arriba'
       }
-    };
 
-    const setText = (selector, value) => { const el = document.querySelector(selector); if (el) el.textContent = value; };
-    const setHTML = (selector, value) => { const el = document.querySelector(selector); if (el) el.innerHTML = value; };
-
-    function applyLanguage(lang) {
-      const tLang = translations[lang] || translations.en;
-      document.documentElement.lang = lang;
-      document.querySelectorAll('.lang-toggle button').forEach(btn => {
-        const active = btn.dataset.lang === lang;
-        btn.classList.toggle('active', active);
-        btn.setAttribute('aria-pressed', active ? 'true' : 'false');
+      document.addEventListener('visibilitychange', () => {
+        runtime.visible = !document.hidden;
       });
 
-      Object.entries({ promo: '[data-i18n="promo"]', navAbout: '[data-i18n="navAbout"]', navActivities: '[data-i18n="navActivities"]', navSkills: '[data-i18n="navSkills"]', navContact: '[data-i18n="navContact"]' })
-        .forEach(([key, selector]) => setText(selector, tLang[key]));
-      setText('.hero-eyebrow', tLang.heroEyebrow);
-      setHTML('.hero h1', tLang.heroTitle);
-      setText('.hero-sub', tLang.heroSub);
-      setText('.hero-cta .btn-primary', tLang.heroSkills);
-      setText('.hero-cta .btn-ghost', tLang.heroContact);
-      setText('#about .section-label', tLang.aboutLabel);
-      setHTML('.about h2', tLang.aboutTitle);
-      ['statSchool', 'statAwards', 'statLanguages', 'statYears'].forEach((key, i) => setText(`.stat:nth-child(${i + 1}) .stat-label`, tLang[key]));
-      [tLang.aboutP1, tLang.aboutP2, tLang.aboutP3].forEach((html, i) => setHTML(`.about-text p:nth-child(${i + 1})`, html));
-      setText('#extra .section-label', tLang.extraLabel);
-      document.querySelectorAll('.extra-item').forEach((item, i) => {
-        const values = tLang.extra[i];
-        if (!values) return;
-        item.querySelector('.extra-tag').textContent = values[0];
-        item.querySelector('.extra-title').textContent = values[1];
-        item.querySelector('.extra-desc').textContent = values[2];
+      /* ── Translation system ── */
+      const translations = {
+        en: {
+          promo: "Offering free website designs - let's build something great together.",
+          navAbout: 'About', navActivities: 'Activities', navProjects: 'Projects', navSkills: 'Skills', navContact: 'Contact',
+          heroEyebrow: 'Programmer · Web Developer',
+          heroSub: 'Based in Chicago. Aiming to create influence everywhere.',
+          heroSkills: 'Skills', heroContact: 'Contact me',
+          aboutLabel: 'About me',
+          aboutTitle: 'Ambitious,<br>driven, and<br>always learning.',
+          statSchool: 'Proviso Mathematics & Science Academy', statAwards: 'Awards Won', statLanguages: 'Programming Languages', statYears: 'Years of Programming/Engineering Experience',
+          aboutP1: "I'm <span style=\"color:var(--text);\">Christopher Rivera</span>, a high school student passionate about <span style=\"color:var(--text);\">web development, programming, robotics,</span> and <span style=\"color:var(--text);\">engineering.</span> I love diving into things that challenge me and push me to grow.",
+          aboutP2: "Whether it's leading a team, competing, or building a project from scratch, I bring full effort to everything I do.",
+          aboutP3: "Outside of school, you'll find me playing soccer, cooking, or working on personal projects.",
+          extraLabel: 'Extracurriculars',
+          extra: [
+            ['Robotics', 'FRC Chief Executive Officer / Programming Department Member', 'Leading with the robotics team, supporting strategy, and helping build reliable robot code for competition.'],
+            ['Coding', 'Programming', 'Building projects, learning new languages, and using code to turn ideas into working tools.'],
+            ['Engineering', 'CAD Design', 'Designing and creating 3D models for various engineering projects. (Autodesk Inventor Certified)'],
+            ['Athletics', 'Club Soccer', 'Competing, training consistently, and building discipline and teamwork on and off the field.'],
+            ['Academic', 'National Honor Society', 'Staying committed to scholarship, character, leadership, and service in the school community.'],
+            ['Technical', 'National Technical Honor Society', 'Recognizing technical growth, career-focused learning, and a commitment to high standards.'],
+            ['Service', 'Key Club', 'Working with others on service projects and finding practical ways to support the community.'],
+            ['Community', 'Community Service', 'Giving time to local efforts, helping where needed, and learning through real-world service.']
+          ],
+          projectsLabel: 'Selected Projects',
+          projectsTitle: 'Ideas shaped into<br><em>working systems.</em>',
+          projectsIntro: 'Selected builds across security, games, robotics, and the web.',
+          projects: [
+            { kicker: 'Featured · Open Source', desc: 'An open-source, local-first desktop security suite for malware scanning, system audits, and maintenance.', live: '', source: 'View on GitHub' },
+            { kicker: 'Featured · Game', desc: 'Farm, fight, and explore an island where every crop, animal, and world is procedurally generated.', live: 'Play game', source: 'View on GitHub' },
+            { kicker: 'Robotics · Web', desc: 'The official website for FRC Team 2151, built to share the team, its work, and its competition story.', live: 'View site', source: 'View on GitHub' },
+            { title: 'Personal Website', kicker: 'Interactive · Web', desc: 'An interactive personal portfolio combining a cosmic visual system with WebGL and scroll-directed motion.', live: 'View site', source: 'View on GitHub' }
+          ],
+          techLabel: 'Technologies',
+          skillsLabel: 'My Skills',
+          skills: [
+            ['Java', 'Writing structured, object-oriented programs for robotics and personal projects.'],
+            ['JavaScript', 'Creating interactive website features and adding behavior to front-end projects.'],
+            ['HTML & CSS', 'Building clean page structure, responsive layouts, and polished visual styles.'],
+            ['Python', 'Solving problems, automating tasks, and writing robot control scripts.'],
+            ['C++', 'Understanding lower-level programming concepts and building efficient logic.'],
+            ['Web Design', 'Designing pages that feel organized, readable, and visually engaging.'],
+            ['Leadership', 'Taking initiative, guiding teammates, and helping groups stay focused on a shared goal.'],
+            ['Teamwork', 'Collaborating well, listening to feedback, and contributing wherever the team needs help.'],
+            ['Problem Solving', 'Breaking problems down, debugging carefully, and staying patient when the answer takes work.']
+          ],
+          contactLabel: 'Contact Me',
+          contactTitle: "Let's connect<br>and do something <em>great</em>.",
+          contactText: "Have an opportunity, idea, or just want to talk? I'm always open to a good conversation.",
+          backTop: 'Back to top'
+        },
+        es: {
+          promo: 'Diseño sitios web gratis — construyamos algo excelente juntos.',
+          navAbout: 'Sobre mí', navActivities: 'Actividades', navProjects: 'Proyectos', navSkills: 'Habilidades', navContact: 'Contacto',
+          heroEyebrow: 'Programador · Desarrollador web',
+          heroSub: 'Basado en Chicago. Buscando crear influencia en todas partes.',
+          heroSkills: 'Habilidades', heroContact: 'Contáctame',
+          aboutLabel: 'Sobre mí',
+          aboutTitle: 'Ambicioso,<br>dedicado y<br>siempre aprendiendo.',
+          statSchool: 'Proviso Mathematics & Science Academy', statAwards: 'Premios ganados', statLanguages: 'Lenguajes de programación', statYears: 'Años de experiencia en programación e ingeniería',
+          aboutP1: "Soy <span style=\"color:var(--text);\">Christopher Rivera</span>, un estudiante de high school apasionado por el <span style=\"color:var(--text);\">desarrollo web, la programación, la robótica</span> y la <span style=\"color:var(--text);\">ingeniería.</span> Me encanta explorar cosas que me retan y me ayudan a crecer.",
+          aboutP2: 'Ya sea liderando un equipo, compitiendo o creando un proyecto desde cero, doy mi máximo esfuerzo en todo lo que hago.',
+          aboutP3: 'Fuera de la escuela, me puedes encontrar jugando fútbol, cocinando o trabajando en proyectos personales.',
+          extraLabel: 'Actividades',
+          extra: [
+            ['Robótica', 'Director ejecutivo de FRC / Miembro del departamento de programación', 'Lidero con el equipo de robótica, apoyo la estrategia y ayudo a crear código confiable para competencias.'],
+            ['Programación', 'Programación', 'Creo proyectos, aprendo nuevos lenguajes y uso código para convertir ideas en herramientas reales.'],
+            ['Ingeniería', 'Diseño CAD', 'Diseño y creo modelos 3D para varios proyectos de ingeniería. (Certificado en Autodesk Inventor)'],
+            ['Atletismo', 'Fútbol de club', 'Compito, entreno con constancia y desarrollo disciplina y trabajo en equipo dentro y fuera de la cancha.'],
+            ['Académico', 'National Honor Society', 'Mantengo compromiso con el estudio, el carácter, el liderazgo y el servicio en la comunidad escolar.'],
+            ['Técnico', 'National Technical Honor Society', 'Reconocimiento al crecimiento técnico, aprendizaje profesional y compromiso con altos estándares.'],
+            ['Servicio', 'Key Club', 'Trabajo con otros en proyectos de servicio y busco maneras prácticas de apoyar a la comunidad.'],
+            ['Comunidad', 'Servicio comunitario', 'Dedico tiempo a esfuerzos locales, ayudo donde se necesita y aprendo mediante servicio real.']
+          ],
+          projectsLabel: 'Proyectos seleccionados',
+          projectsTitle: 'Ideas convertidas en<br><em>sistemas reales.</em>',
+          projectsIntro: 'Proyectos de seguridad, videojuegos, robótica y desarrollo web.',
+          projects: [
+            { kicker: 'Destacado · Código abierto', desc: 'Una suite de seguridad de escritorio, local y de código abierto para análisis de malware, auditorías del sistema y mantenimiento.', live: '', source: 'Ver en GitHub' },
+            { kicker: 'Destacado · Videojuego', desc: 'Cultiva, combate y explora una isla donde cada cultivo, animal y mundo se genera proceduralmente.', live: 'Jugar', source: 'Ver en GitHub' },
+            { kicker: 'Robótica · Web', desc: 'El sitio web oficial del equipo FRC 2151, creado para compartir el equipo, su trabajo y su historia en competencia.', live: 'Ver sitio', source: 'Ver en GitHub' },
+            { title: 'Sitio web personal', kicker: 'Interactivo · Web', desc: 'Un portafolio personal interactivo que combina un sistema visual cósmico con WebGL y movimiento dirigido por desplazamiento.', live: 'Ver sitio', source: 'Ver en GitHub' }
+          ],
+          techLabel: 'Tecnologías',
+          skillsLabel: 'Mis habilidades',
+          skills: [
+            ['Java', 'Escribo programas estructurados y orientados a objetos para robótica y proyectos personales.'],
+            ['JavaScript', 'Creo funciones interactivas para sitios web y agrego comportamiento a proyectos front-end.'],
+            ['HTML y CSS', 'Construyo estructura clara, diseños responsivos y estilos visuales pulidos.'],
+            ['Python', 'Resuelvo problemas, automatizo tareas y escribo scripts de control para robots.'],
+            ['C++', 'Comprendo conceptos de programación de bajo nivel y creo lógica eficiente.'],
+            ['Diseño web', 'Diseño páginas organizadas, legibles y visualmente atractivas.'],
+            ['Liderazgo', 'Tomo iniciativa, guío compañeros y ayudo a que los grupos se enfoquen en una meta común.'],
+            ['Trabajo en equipo', 'Colaboro bien, escucho comentarios y contribuyo donde el equipo necesita ayuda.'],
+            ['Resolución de problemas', 'Divido los problemas, depuro con cuidado y mantengo paciencia cuando la respuesta requiere trabajo.']
+          ],
+          contactLabel: 'Contáctame',
+          contactTitle: 'Conectemos<br>y hagamos algo <em>excelente</em>.',
+          contactText: '¿Tienes una oportunidad, una idea o solo quieres hablar? Siempre estoy abierto a una buena conversación.',
+          backTop: 'Volver arriba'
+        }
+      };
+
+      const setText = (selector, value) => {
+        const element = document.querySelector(selector);
+        if (element && value !== undefined) element.textContent = value;
+      };
+      const setHTML = (selector, value) => {
+        const element = document.querySelector(selector);
+        if (element && value !== undefined) element.innerHTML = value;
+      };
+
+      function applyLanguage(language) {
+        const copy = translations[language] || translations.en;
+        document.documentElement.lang = language;
+        document.querySelectorAll('.lang-toggle button').forEach((button) => {
+          const active = button.dataset.lang === language;
+          button.classList.toggle('active', active);
+          button.setAttribute('aria-pressed', String(active));
+        });
+
+        ['promo', 'navAbout', 'navActivities', 'navProjects', 'navSkills', 'navContact', 'heroSkills', 'heroContact', 'backTop'].forEach((key) => {
+          document.querySelectorAll('[data-i18n="' + key + '"]').forEach((element) => {
+            element.textContent = copy[key];
+          });
+        });
+        setText('.hero-eyebrow', copy.heroEyebrow);
+        setText('.hero-sub', copy.heroSub);
+        setText('#about .section-label', copy.aboutLabel);
+        setHTML('.about h2', copy.aboutTitle);
+        ['statSchool', 'statAwards', 'statLanguages', 'statYears'].forEach((key, index) => {
+          setText('.stat:nth-child(' + (index + 1) + ') .stat-label', copy[key]);
+        });
+        [copy.aboutP1, copy.aboutP2, copy.aboutP3].forEach((value, index) => {
+          setHTML('.about-text p:nth-child(' + (index + 1) + ')', value);
+        });
+        setText('#extra .section-label', copy.extraLabel);
+        document.querySelectorAll('.extra-item').forEach((item, index) => {
+          const values = copy.extra[index];
+          if (!values) return;
+          item.querySelector('.extra-tag').textContent = values[0];
+          item.querySelector('.extra-title').textContent = values[1];
+          item.querySelector('.extra-desc').textContent = values[2];
+        });
+
+        setText('#projects .section-label', copy.projectsLabel);
+        setHTML('.projects-intro h2', copy.projectsTitle);
+        setText('.projects-intro p', copy.projectsIntro);
+        document.querySelectorAll('.project-card').forEach((card, index) => {
+          const project = copy.projects[index];
+          if (!project) return;
+          if (project.title) card.querySelector('h3').textContent = project.title;
+          card.querySelector('.project-kicker').textContent = project.kicker;
+          card.querySelector('.project-desc').textContent = project.desc;
+          card.querySelector('.project-tech').setAttribute('aria-label', copy.techLabel);
+          card.querySelectorAll('.project-live-label').forEach((label) => { label.textContent = project.live; });
+          card.querySelectorAll('.project-source-label').forEach((label) => { label.textContent = project.source; });
+        });
+
+        setText('#skills .skills-heading', copy.skillsLabel);
+        document.querySelectorAll('.skill-item').forEach((item, index) => {
+          const values = copy.skills[index];
+          if (!values) return;
+          item.querySelector('.skill-name').textContent = values[0];
+          item.querySelector('.skill-desc').textContent = values[1];
+        });
+        setText('#contact .section-label', copy.contactLabel);
+        setHTML('.contact h2', copy.contactTitle);
+        setText('.contact p', copy.contactText);
+
+        try { localStorage.setItem('preferredLanguage', language); } catch (error) { }
+        if (ScrollTrigger) requestAnimationFrame(() => ScrollTrigger.refresh(true));
+      }
+
+      document.querySelectorAll('.lang-toggle button').forEach((button) => {
+        button.addEventListener('click', () => applyLanguage(button.dataset.lang));
       });
-      setText('#skills .section-label', tLang.skillsLabel);
-      document.querySelectorAll('.skill-item').forEach((item, i) => {
-        const values = tLang.skills[i];
-        if (!values) return;
-        item.querySelector('.skill-name').textContent = values[0];
-        item.querySelector('.skill-desc').textContent = values[1];
+      let preferredLanguage = 'en';
+      try { preferredLanguage = localStorage.getItem('preferredLanguage') || 'en'; } catch (error) { }
+      applyLanguage(preferredLanguage);
+
+      /* ── Cached space background ── */
+      const spaceCanvas = document.getElementById('space-canvas');
+      const spaceContext = spaceCanvas.getContext('2d', { alpha: true });
+      const staticLayer = document.createElement('canvas');
+      const staticContext = staticLayer.getContext('2d', { alpha: true });
+      const glowSprite = document.createElement('canvas');
+      const glowContext = glowSprite.getContext('2d');
+      glowSprite.width = 64;
+      glowSprite.height = 64;
+      const glowGradient = glowContext.createRadialGradient(32, 32, 0, 32, 32, 32);
+      glowGradient.addColorStop(0, 'rgba(180,215,255,.62)');
+      glowGradient.addColorStop(.24, 'rgba(120,175,255,.28)');
+      glowGradient.addColorStop(1, 'rgba(90,145,255,0)');
+      glowContext.fillStyle = glowGradient;
+      glowContext.fillRect(0, 0, 64, 64);
+
+      let spaceWidth = 1;
+      let spaceHeight = 1;
+      let spaceDpr = 1;
+      let stars = [];
+      let shootingStars = [];
+      let lastAmbientFrame = 0;
+      let nextShootingStar = performance.now() + 3500;
+
+      const randomBetween = (minimum, maximum) => minimum + Math.random() * (maximum - minimum);
+
+      function paintNebula(context, nebula) {
+        const radius = Math.max(nebula.rx, nebula.ry);
+        const gradient = context.createRadialGradient(nebula.x, nebula.y, 0, nebula.x, nebula.y, radius);
+        gradient.addColorStop(0, 'rgba(' + nebula.color + ',' + nebula.alpha + ')');
+        gradient.addColorStop(.52, 'rgba(' + nebula.color + ',' + (nebula.alpha * .36) + ')');
+        gradient.addColorStop(1, 'rgba(' + nebula.color + ',0)');
+        context.save();
+        context.translate(nebula.x, nebula.y);
+        context.scale(nebula.rx / radius, nebula.ry / radius);
+        context.beginPath();
+        context.arc(0, 0, radius, 0, Math.PI * 2);
+        context.fillStyle = gradient;
+        context.fill();
+        context.restore();
+      }
+
+      function rebuildSpace() {
+        spaceWidth = Math.max(1, window.innerWidth);
+        spaceHeight = Math.max(1, window.innerHeight);
+        spaceDpr = Math.min(window.devicePixelRatio || 1, 1.25);
+        spaceCanvas.width = Math.round(spaceWidth * spaceDpr);
+        spaceCanvas.height = Math.round(spaceHeight * spaceDpr);
+        staticLayer.width = spaceCanvas.width;
+        staticLayer.height = spaceCanvas.height;
+        spaceCanvas.style.width = spaceWidth + 'px';
+        spaceCanvas.style.height = spaceHeight + 'px';
+        spaceContext.setTransform(spaceDpr, 0, 0, spaceDpr, 0, 0);
+        staticContext.setTransform(spaceDpr, 0, 0, spaceDpr, 0, 0);
+        staticContext.clearRect(0, 0, spaceWidth, spaceHeight);
+
+        [
+          { x: spaceWidth * .76, y: spaceHeight * .16, rx: spaceWidth * .38, ry: spaceHeight * .3, color: '28,55,180', alpha: .052 },
+          { x: spaceWidth * .2, y: spaceHeight * .72, rx: spaceWidth * .28, ry: spaceHeight * .28, color: '80,30,160', alpha: .04 },
+          { x: spaceWidth * .5, y: spaceHeight * .46, rx: spaceWidth * .5, ry: spaceHeight * .5, color: '10,20,80', alpha: .024 }
+        ].forEach((nebula) => paintNebula(staticContext, nebula));
+
+        stars = [];
+        const count = Math.min(700, Math.floor((spaceWidth * spaceHeight) / 3300));
+        for (let index = 0; index < count; index += 1) {
+          stars.push({
+            x: Math.random() * spaceWidth,
+            y: Math.random() * spaceHeight,
+            radius: randomBetween(.3, 1.45),
+            alpha: randomBetween(.22, .86),
+            speed: randomBetween(.55, 1.45),
+            phase: Math.random() * Math.PI * 2,
+            blue: Math.random() < .16,
+            glow: false
+          });
+        }
+        for (let index = 0; index < 7; index += 1) {
+          stars.push({
+            x: Math.random() * spaceWidth,
+            y: Math.random() * spaceHeight,
+            radius: randomBetween(1.45, 2.35),
+            alpha: randomBetween(.5, .92),
+            speed: randomBetween(.35, .8),
+            phase: Math.random() * Math.PI * 2,
+            blue: true,
+            glow: true
+          });
+        }
+        shootingStars = [];
+        drawSpace(performance.now(), true);
+      }
+
+      function spawnShootingStar() {
+        shootingStars.push({
+          x: randomBetween(0, spaceWidth),
+          y: randomBetween(0, spaceHeight * .42),
+          length: randomBetween(90, 180),
+          speed: randomBetween(420, 680),
+          alpha: 1,
+          angle: Math.PI / 5
+        });
+      }
+
+      function drawSpace(time, forceStatic) {
+        if (!spaceContext) return;
+        const seconds = time / 1000;
+        spaceContext.clearRect(0, 0, spaceWidth, spaceHeight);
+        spaceContext.drawImage(staticLayer, 0, 0, staticLayer.width, staticLayer.height, 0, 0, spaceWidth, spaceHeight);
+
+        stars.forEach((star) => {
+          const pulse = forceStatic || reducedMotion.matches
+            ? .72
+            : .46 + .54 * Math.abs(Math.sin(star.phase + seconds * star.speed));
+          const alpha = star.alpha * pulse;
+          if (star.glow) {
+            const glowSize = star.radius * 10;
+            spaceContext.globalAlpha = alpha;
+            spaceContext.drawImage(glowSprite, star.x - glowSize / 2, star.y - glowSize / 2, glowSize, glowSize);
+            spaceContext.globalAlpha = 1;
+          }
+          spaceContext.beginPath();
+          spaceContext.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+          spaceContext.fillStyle = star.blue
+            ? 'rgba(135,175,255,' + alpha + ')'
+            : 'rgba(225,233,255,' + alpha + ')';
+          spaceContext.fill();
+        });
+
+        if (!forceStatic && !reducedMotion.matches) {
+          shootingStars = shootingStars.filter((star) => star.alpha > 0);
+          shootingStars.forEach((star) => {
+            const dx = Math.cos(star.angle) * star.length;
+            const dy = Math.sin(star.angle) * star.length;
+            const gradient = spaceContext.createLinearGradient(star.x, star.y, star.x - dx, star.y - dy);
+            gradient.addColorStop(0, 'rgba(180,210,255,' + star.alpha + ')');
+            gradient.addColorStop(1, 'rgba(180,210,255,0)');
+            spaceContext.beginPath();
+            spaceContext.moveTo(star.x, star.y);
+            spaceContext.lineTo(star.x - dx, star.y - dy);
+            spaceContext.strokeStyle = gradient;
+            spaceContext.lineWidth = 1.25;
+            spaceContext.stroke();
+            star.x += Math.cos(star.angle) * star.speed / 30;
+            star.y += Math.sin(star.angle) * star.speed / 30;
+            star.alpha -= .024;
+          });
+        }
+      }
+
+      let resizeFrame = 0;
+      window.addEventListener('resize', () => {
+        cancelAnimationFrame(resizeFrame);
+        resizeFrame = requestAnimationFrame(rebuildSpace);
+      }, { passive: true });
+      rebuildSpace();
+
+      if (!reducedMotion.matches) {
+        runtime.addFrame((time) => {
+          if (!runtime.visible || time - lastAmbientFrame < 33) return;
+          lastAmbientFrame = time;
+          if (time >= nextShootingStar) {
+            spawnShootingStar();
+            nextShootingStar = time + randomBetween(7000, 12000);
+          }
+          drawSpace(time, false);
+        });
+      }
+
+      /* ── Interpolated custom cursor ── */
+      const cursor = document.getElementById('cursor');
+      const cursorState = { targetX: -80, targetY: -80, currentX: -80, currentY: -80, visible: false };
+      if (finePointer.matches && !reducedMotion.matches) {
+        document.addEventListener('pointermove', (event) => {
+          cursorState.targetX = event.clientX;
+          cursorState.targetY = event.clientY;
+          if (!cursorState.visible) {
+            cursorState.currentX = event.clientX;
+            cursorState.currentY = event.clientY;
+            cursorState.visible = true;
+            cursor.classList.add('active');
+          }
+        }, { passive: true });
+        document.addEventListener('pointerover', (event) => {
+          if (event.target.closest('a, button, .extra-item, .skill-item, .project-card')) cursor.classList.add('hover');
+        });
+        document.addEventListener('pointerout', (event) => {
+          if (event.target.closest('a, button, .extra-item, .skill-item, .project-card')) cursor.classList.remove('hover');
+        });
+        document.documentElement.addEventListener('mouseleave', () => {
+          cursorState.visible = false;
+          cursor.classList.remove('active');
+        });
+        document.documentElement.addEventListener('mouseenter', () => {
+          if (cursorState.currentX >= 0) {
+            cursorState.visible = true;
+            cursor.classList.add('active');
+          }
+        });
+        runtime.addFrame(() => {
+          if (!cursorState.visible) return;
+          cursorState.currentX += (cursorState.targetX - cursorState.currentX) * .18;
+          cursorState.currentY += (cursorState.targetY - cursorState.currentY) * .18;
+          cursor.style.transform = 'translate3d(' + cursorState.currentX + 'px,' + cursorState.currentY + 'px,0) translate(-50%,-50%)';
+        });
+      }
+
+      /* ── Lenis + GSAP coordinated motion ── */
+      let lenis = null;
+      if (gsap && ScrollTrigger) {
+        gsap.registerPlugin(ScrollTrigger);
+        if (Lenis) {
+          lenis = new Lenis({
+            lerp: .1,
+            smoothWheel: true,
+            wheelMultiplier: .9,
+            syncTouch: false,
+            touchMultiplier: 1,
+            anchors: false,
+            autoRaf: false,
+            respectReducedMotion: true
+          });
+          lenis.on('scroll', ScrollTrigger.update);
+          gsap.ticker.lagSmoothing(0);
+        }
+
+        if (!reducedMotion.matches) {
+          const heroSphere = document.querySelector('.hero-three-wrap');
+          const nav = document.querySelector('nav');
+          const heroTimeline = gsap.timeline({ defaults: { ease: 'power3.out' } });
+          const sphereTargetOpacity = window.innerWidth <= 700 ? .46 : 1;
+          gsap.set(nav, { opacity: 0, y: -12 });
+          gsap.set('.hero-eyebrow', { opacity: 0, y: 16 });
+          gsap.set('.hero-line > span', { yPercent: 108 });
+          gsap.set('.hero-sub', { opacity: 0, y: 17 });
+          gsap.set('.hero-cta .btn', { opacity: 0, y: 14 });
+          gsap.set(heroSphere, { opacity: 0, scale: .95, y: 12 });
+          document.documentElement.classList.remove('motion-pending');
+          heroTimeline
+          .to(nav, { opacity: 1, y: 0, duration: .52 }, 0)
+          .to('.hero-eyebrow', { opacity: 1, y: 0, duration: .55 }, .08)
+          .to('.hero-line > span', { yPercent: 0, duration: .72, stagger: .07, ease: 'power4.out' }, .12)
+          .to('.hero-sub', { opacity: 1, y: 0, duration: .58 }, .28)
+          .to('.hero-cta .btn', { opacity: 1, y: 0, duration: .55, stagger: .06 }, .38)
+          .to(heroSphere, { opacity: sphereTargetOpacity, scale: 1, y: 0, duration: .84, ease: 'power4.out' }, .12);
+
+        const revealGroups = [
+          '.about-text',
+          '.stat',
+          '.extra-item',
+          '.project-card',
+          '.skill-item',
+          '.contact p',
+          '.contact-links'
+        ];
+        const revealElements = gsap.utils.toArray(revealGroups.join(','));
+        gsap.set(revealElements, { opacity: 0, y: 18 });
+        ScrollTrigger.batch(revealElements, {
+          start: 'top 88%',
+          once: true,
+          onEnter: (items) => {
+            gsap.to(items, {
+              opacity: 1,
+              y: 0,
+              duration: .72,
+              stagger: .055,
+              ease: 'power3.out',
+              overwrite: true,
+              onComplete: () => {
+                const cards = items.filter((item) => item.matches('.stat, .extra-item, .project-card, .skill-item'));
+                if (cards.length) gsap.set(cards, { clearProps: 'transform' });
+              }
+            });
+          }
+        });
+
+        const labels = gsap.utils.toArray('.section-label');
+        gsap.set(labels, { opacity: 0, y: 12 });
+        labels.forEach((label) => {
+          gsap.to(label, {
+            opacity: 1,
+            y: 0,
+            duration: .58,
+            ease: 'power3.out',
+            scrollTrigger: { trigger: label, start: 'top 90%', once: true }
+          });
+        });
+
+        gsap.utils.toArray('.about h2, .projects-intro h2, .skills-heading, .contact h2').forEach((heading) => {
+          gsap.fromTo(heading,
+            { opacity: .58, y: 22 },
+            {
+              opacity: 1,
+              y: 0,
+              ease: 'none',
+              scrollTrigger: {
+                trigger: heading,
+                start: 'top 92%',
+                end: 'top 58%',
+                scrub: .38
+              }
+            }
+          );
+        });
+
+        gsap.to('.hero-glow', {
+          yPercent: 8,
+          opacity: .48,
+          ease: 'none',
+          scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: .45 }
+        });
+
+        let sphereMotionCreated = false;
+        const sphereMedia = gsap.matchMedia();
+        function createSphereMotion() {
+          if (sphereMotionCreated || reducedMotion.matches) return;
+          sphereMotionCreated = true;
+          sphereMedia.add({
+            desktop: '(min-width: 701px) and (prefers-reduced-motion: no-preference)',
+            mobile: '(max-width: 700px) and (prefers-reduced-motion: no-preference)'
+          }, (context) => {
+            const updateSphereActivity = () => { runtime.sphere.active = runtime.sphere.opacity > .015; };
+            if (context.conditions.desktop) {
+              const timeline = gsap.timeline({
+                scrollTrigger: {
+                  trigger: '.hero',
+                  start: 'top top',
+                  endTrigger: '#about',
+                  end: '55% top',
+                  scrub: .48,
+                  invalidateOnRefresh: true
+                }
+              });
+              timeline
+                .to(heroSphere, { xPercent: 11, yPercent: 15, scale: .62, opacity: .16, duration: .68, ease: 'none' }, 0)
+                .to(runtime.sphere, {
+                  rotationY: 1.18, tilt: .18, spread: .11, cameraZ: 13.35, opacity: .18, duration: .68, ease: 'none',
+                  onUpdate: updateSphereActivity
+                }, 0)
+                .to(heroSphere, { opacity: 0, duration: .32, ease: 'none' }, .68)
+                .to(runtime.sphere, { spread: .17, opacity: 0, duration: .32, ease: 'none', onUpdate: updateSphereActivity }, .68);
+            } else {
+              const timeline = gsap.timeline({
+                scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: .35 }
+              });
+              timeline
+                .to(heroSphere, { xPercent: 8, yPercent: 8, scale: .82, opacity: 0, ease: 'none' }, 0)
+                .to(runtime.sphere, {
+                  rotationY: .62, spread: .08, opacity: 0, cameraZ: 12.8, ease: 'none',
+                  onUpdate: updateSphereActivity
+                }, 0);
+            }
+            return () => {
+              Object.assign(runtime.sphere, { active: true, opacity: .9, spread: 0, rotationY: 0, tilt: 0, cameraZ: 12 });
+            };
+          });
+        }
+          heroTimeline.call(createSphereMotion, [], .72);
+        }
+
+        const navLinks = Array.from(document.querySelectorAll('.nav-links a'));
+        const setActiveLink = (id) => {
+          navLinks.forEach((link) => {
+            const active = link.getAttribute('href') === '#' + id;
+            link.classList.toggle('active', active);
+            if (active) link.setAttribute('aria-current', 'location');
+            else link.removeAttribute('aria-current');
+          });
+        };
+        document.querySelectorAll('section[id]').forEach((section) => {
+          ScrollTrigger.create({
+            trigger: section,
+            start: 'top 48%',
+            end: 'bottom 48%',
+            onToggle: (self) => { if (self.isActive) setActiveLink(section.id); }
+          });
+        });
+        ScrollTrigger.create({
+          trigger: '.hero',
+          start: 'top top',
+          end: 'bottom 48%',
+          onEnterBack: () => setActiveLink('')
+        });
+
+        if (document.fonts && document.fonts.ready) {
+          document.fonts.ready.then(() => ScrollTrigger.refresh(true));
+        } else {
+          window.addEventListener('load', () => ScrollTrigger.refresh(true), { once: true });
+        }
+      }
+
+      const navigation = document.querySelector('nav');
+      if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+
+      function scrollToHash(hash, { updateHistory = false, immediate = reducedMotion.matches } = {}) {
+        const target = hash === '#' || !hash ? document.documentElement : document.querySelector(hash);
+        if (!target) return false;
+        const normalizedHash = hash || '#';
+        const navHeight = navigation.getBoundingClientRect().height;
+        const offset = normalizedHash === '#' ? 0 : -(navHeight + 14);
+        const finish = () => {
+          if (!updateHistory) return;
+          const nextUrl = normalizedHash === '#'
+            ? window.location.pathname + window.location.search
+            : normalizedHash;
+          if (window.location.hash !== normalizedHash || normalizedHash === '#') {
+            history.pushState(null, '', nextUrl);
+          }
+        };
+
+        if (lenis) {
+          lenis.scrollTo(target, { offset, immediate, onComplete: finish });
+        } else {
+          const top = normalizedHash === '#' ? 0 : window.scrollY + target.getBoundingClientRect().top + offset;
+          window.scrollTo({ top, behavior: immediate ? 'auto' : 'smooth' });
+          finish();
+        }
+        return true;
+      }
+
+      document.addEventListener('click', (event) => {
+        const anchor = event.target.closest('a[href^="#"]');
+        if (!anchor) return;
+        const hash = anchor.getAttribute('href');
+        if (!scrollToHash(hash, { updateHistory: true })) return;
+        event.preventDefault();
       });
-      setText('#contact .section-label', tLang.contactLabel);
-      setHTML('.contact h2', tLang.contactTitle);
-      setText('.contact p', tLang.contactText);
-      setText('footer a', tLang.backTop);
-      try { localStorage.setItem('preferredLanguage', lang); } catch (e) { }
-    }
 
-    document.querySelectorAll('.lang-toggle button').forEach(btn => {
-      btn.addEventListener('click', () => applyLanguage(btn.dataset.lang));
-    });
-    applyLanguage(localStorage.getItem('preferredLanguage') || 'en');
+      const restoreHashPosition = () => scrollToHash(window.location.hash || '#', { immediate: true });
+      let hashRestoreFrame = 0;
+      const scheduleHashRestore = () => {
+        cancelAnimationFrame(hashRestoreFrame);
+        hashRestoreFrame = requestAnimationFrame(() => {
+          hashRestoreFrame = requestAnimationFrame(restoreHashPosition);
+        });
+      };
+      window.addEventListener('popstate', scheduleHashRestore);
+      window.addEventListener('hashchange', scheduleHashRestore);
+      if (window.location.hash) {
+        if (document.readyState === 'complete') scheduleHashRestore();
+        else window.addEventListener('load', scheduleHashRestore, { once: true });
+      }
 
+      function frameTick(time, deltaTime) {
+        if (lenis) lenis.raf(time);
+        frameCallbacks.forEach((callback) => callback(time, deltaTime));
+      }
 
-
-    /* ── Scroll reveal ── */
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
-      });
-    }, { threshold: 0.10 });
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+      if (gsap) {
+        gsap.ticker.add((time, deltaTime) => frameTick(time * 1000, deltaTime));
+      } else {
+        let previous = performance.now();
+        const fallbackTick = (time) => {
+          const delta = time - previous;
+          previous = time;
+          frameTick(time, delta);
+          requestAnimationFrame(fallbackTick);
+        };
+        requestAnimationFrame(fallbackTick);
+      }
+    })();
   </script>
+
   <script type="module">
     import * as THREE from 'https://unpkg.com/three@0.160.0/build/three.module.js';
 
-    const heroCanvas = document.getElementById('hero-three');
-    if (heroCanvas) {
-      const scene = new THREE.Scene();
-      const camera = new THREE.PerspectiveCamera(52, 1, 0.1, 100);
-      camera.position.set(0, 1.2, 12);
+    const runtime = window.portfolioRuntime;
+    const canvas = document.getElementById('hero-three');
+    const wrapper = document.querySelector('.hero-three-wrap');
 
-      const renderer = new THREE.WebGLRenderer({
-        canvas: heroCanvas,
-        alpha: true,
-        antialias: true,
-        powerPreference: 'high-performance',
-      });
-      renderer.setClearColor(0x000000, 0);
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+    if (runtime && canvas && wrapper) {
+      try {
+        const quality = runtime.quality;
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(52, 1, .1, 100);
+        camera.position.set(0, 1.2, runtime.sphere.cameraZ);
+        const renderer = new THREE.WebGLRenderer({
+          canvas,
+          alpha: true,
+          antialias: runtime.antialias,
+          powerPreference: 'high-performance'
+        });
+        renderer.setClearColor(0x000000, 0);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, quality.pixelRatio));
 
-      const system = new THREE.Group();
-      system.rotation.set(-0.08, 0.28, -0.16);
-      scene.add(system);
+        canvas.dataset.quality = runtime.qualityName;
+        canvas.dataset.antialias = String(runtime.antialias);
 
-      const particleCount = 5200;
-      const shapeSize = 3.25;
-      const currentPositions = new Float32Array(particleCount * 3);
-      const sourcePositions = new Float32Array(particleCount * 3);
-      const colors = new Float32Array(particleCount * 3);
-      const sizes = new Float32Array(particleCount);
-      const blueA = new THREE.Color(0x2f7cff);
-      const blueB = new THREE.Color(0x84d8ff);
-      const blueC = new THREE.Color(0xe8f6ff);
-      const tempColor = new THREE.Color();
+        const system = new THREE.Group();
+        system.rotation.set(-.08, .28, -.16);
+        scene.add(system);
 
-      function setPoint(array, index, x, y, z) {
-        const i3 = index * 3;
-        array[i3] = x;
-        array[i3 + 1] = y;
-        array[i3 + 2] = z;
-      }
+        const particleCount = quality.particleCount;
+        const shapeSize = 3.25;
+        const positions = new Float32Array(particleCount * 3);
+        const colors = new Float32Array(particleCount * 3);
+        const sizes = new Float32Array(particleCount);
+        const blueA = new THREE.Color(0x2f7cff);
+        const blueB = new THREE.Color(0x84d8ff);
+        const blueC = new THREE.Color(0xe8f6ff);
+        const temporaryColor = new THREE.Color();
+        const goldenAngle = Math.PI * (3 - Math.sqrt(5));
 
-      function generateSphere() {
-        const points = new Float32Array(particleCount * 3);
-        const turn = Math.PI * (3 - Math.sqrt(5));
-        for (let i = 0; i < particleCount; i++) {
-          const y = 1 - (i / (particleCount - 1)) * 2;
+        for (let index = 0; index < particleCount; index += 1) {
+          const offset = index * 3;
+          const y = 1 - (index / (particleCount - 1)) * 2;
           const radius = Math.sqrt(1 - y * y);
-          const theta = turn * i;
-          setPoint(points, i, Math.cos(theta) * radius * shapeSize, y * shapeSize, Math.sin(theta) * radius * shapeSize);
+          const theta = goldenAngle * index;
+          positions[offset] = Math.cos(theta) * radius * shapeSize;
+          positions[offset + 1] = y * shapeSize;
+          positions[offset + 2] = Math.sin(theta) * radius * shapeSize;
+
+          temporaryColor.copy(blueA).lerp(blueB, Math.random());
+          if (Math.random() > .88) temporaryColor.lerp(blueC, .55);
+          colors[offset] = temporaryColor.r;
+          colors[offset + 1] = temporaryColor.g;
+          colors[offset + 2] = temporaryColor.b;
+          sizes[index] = THREE.MathUtils.randFloat(.055, .15);
         }
-        return points;
+
+        const particleTexture = (() => {
+          const textureCanvas = document.createElement('canvas');
+          textureCanvas.width = 64;
+          textureCanvas.height = 64;
+          const context = textureCanvas.getContext('2d');
+          const gradient = context.createRadialGradient(32, 32, 0, 32, 32, 32);
+          gradient.addColorStop(0, 'rgba(255,255,255,1)');
+          gradient.addColorStop(.24, 'rgba(255,255,255,.82)');
+          gradient.addColorStop(.58, 'rgba(255,255,255,.24)');
+          gradient.addColorStop(1, 'rgba(255,255,255,0)');
+          context.fillStyle = gradient;
+          context.fillRect(0, 0, 64, 64);
+          const texture = new THREE.CanvasTexture(textureCanvas);
+          texture.colorSpace = THREE.SRGBColorSpace;
+          return texture;
+        })();
+
+        const geometry = new THREE.BufferGeometry();
+        geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+        geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+        geometry.setAttribute('size', new THREE.BufferAttribute(sizes, 1));
+
+        const material = new THREE.ShaderMaterial({
+          uniforms: {
+            pointTexture: { value: particleTexture },
+            uOpacity: { value: .9 },
+            uSpread: { value: 0 },
+            uPointScale: { value: quality.pixelRatio < 1.25 ? .96 : 1 }
+          },
+          vertexShader: [
+            'attribute float size;',
+            'uniform float uSpread;',
+            'uniform float uPointScale;',
+            'varying vec3 vColor;',
+            'void main() {',
+            '  vColor = color;',
+            '  vec3 expandedPosition = position * (1.0 + uSpread);',
+            '  vec4 mvPosition = modelViewMatrix * vec4(expandedPosition, 1.0);',
+            '  gl_PointSize = size * uPointScale * (430.0 / -mvPosition.z);',
+            '  gl_Position = projectionMatrix * mvPosition;',
+            '}'
+          ].join('\n'),
+          fragmentShader: [
+            'uniform sampler2D pointTexture;',
+            'uniform float uOpacity;',
+            'varying vec3 vColor;',
+            'void main() {',
+            '  float alpha = texture2D(pointTexture, gl_PointCoord).a;',
+            '  if (alpha < 0.04) discard;',
+            '  gl_FragColor = vec4(vColor * 1.22, alpha * uOpacity);',
+            '}'
+          ].join('\n'),
+          blending: THREE.AdditiveBlending,
+          depthWrite: false,
+          transparent: true,
+          vertexColors: true
+        });
+
+        system.add(new THREE.Points(geometry, material));
+
+        const resizeScene = () => {
+          const rect = canvas.getBoundingClientRect();
+          const width = Math.max(1, Math.floor(rect.width));
+          const height = Math.max(1, Math.floor(rect.height));
+          renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, quality.pixelRatio));
+          renderer.setSize(width, height, false);
+          camera.aspect = width / height;
+          camera.updateProjectionMatrix();
+        };
+        const resizeObserver = new ResizeObserver(resizeScene);
+        resizeObserver.observe(canvas);
+        resizeScene();
+
+        let reducedFrameRendered = false;
+        const renderScene = (time) => {
+          if (!runtime.visible || !runtime.sphere.active) return;
+          if (runtime.reducedMotion.matches && reducedFrameRendered) return;
+
+          const seconds = time / 1000;
+          system.rotation.y = seconds * .16 + runtime.sphere.rotationY;
+          system.rotation.x = -.08 + runtime.sphere.tilt + Math.sin(seconds * .32) * .065;
+          system.rotation.z = -.16 + Math.sin(seconds * .24) * .05;
+          const idleScale = 1 + Math.sin(seconds * .7) * .014;
+          system.scale.setScalar(idleScale);
+          camera.position.z = runtime.sphere.cameraZ;
+          material.uniforms.uSpread.value = runtime.sphere.spread;
+          material.uniforms.uOpacity.value = runtime.sphere.opacity * (.92 + Math.sin(seconds * 1.25) * .055);
+          renderer.render(scene, camera);
+          reducedFrameRendered = runtime.reducedMotion.matches;
+        };
+        runtime.addFrame(renderScene);
+        renderScene(performance.now());
+      } catch (error) {
+        wrapper.style.display = 'none';
       }
-
-      function generateTorus() {
-        const points = new Float32Array(particleCount * 3);
-        const major = shapeSize * 0.78;
-        const minor = shapeSize * 0.34;
-        for (let i = 0; i < particleCount; i++) {
-          const theta = Math.random() * Math.PI * 2;
-          const phi = Math.random() * Math.PI * 2;
-          const ring = major + minor * Math.cos(phi);
-          setPoint(points, i, Math.cos(theta) * ring, Math.sin(phi) * minor, Math.sin(theta) * ring);
-        }
-        return points;
-      }
-
-      function generateCube() {
-        const points = new Float32Array(particleCount * 3);
-        const half = shapeSize * 0.78;
-        for (let i = 0; i < particleCount; i++) {
-          const face = Math.floor(Math.random() * 6);
-          const u = THREE.MathUtils.randFloatSpread(half * 2);
-          const v = THREE.MathUtils.randFloatSpread(half * 2);
-          if (face === 0) setPoint(points, i, half, u, v);
-          if (face === 1) setPoint(points, i, -half, u, v);
-          if (face === 2) setPoint(points, i, u, half, v);
-          if (face === 3) setPoint(points, i, u, -half, v);
-          if (face === 4) setPoint(points, i, u, v, half);
-          if (face === 5) setPoint(points, i, u, v, -half);
-        }
-        return points;
-      }
-
-      function generateWave() {
-        const points = new Float32Array(particleCount * 3);
-        for (let i = 0; i < particleCount; i++) {
-          const x = THREE.MathUtils.randFloatSpread(shapeSize * 2.4);
-          const z = THREE.MathUtils.randFloatSpread(shapeSize * 2.4);
-          const dist = Math.sqrt(x * x + z * z);
-          const y = Math.sin(dist * 2.35) * 0.9 * Math.max(0, 1 - dist / (shapeSize * 2.1));
-          setPoint(points, i, x, y, z);
-        }
-        return points;
-      }
-
-      function generateGalaxy() {
-        const points = new Float32Array(particleCount * 3);
-        for (let i = 0; i < particleCount; i++) {
-          const arm = i % 5;
-          const radius = Math.pow(Math.random(), 0.62) * shapeSize * 1.25;
-          const twist = radius * 1.9;
-          const angle = arm * Math.PI * 0.4 + twist + THREE.MathUtils.randFloatSpread(0.42);
-          const y = THREE.MathUtils.randFloatSpread(0.22 + radius * 0.06);
-          setPoint(points, i, Math.cos(angle) * radius, y, Math.sin(angle) * radius * 0.72);
-        }
-        return points;
-      }
-
-      const targets = [
-        generateSphere(),
-      ];
-      currentPositions.set(targets[0]);
-      sourcePositions.set(targets[0]);
-
-      for (let i = 0; i < particleCount; i++) {
-        const i3 = i * 3;
-        const t = Math.random();
-        tempColor.copy(blueA).lerp(blueB, t);
-        if (Math.random() > 0.88) tempColor.lerp(blueC, 0.55);
-        colors[i3] = tempColor.r;
-        colors[i3 + 1] = tempColor.g;
-        colors[i3 + 2] = tempColor.b;
-        sizes[i] = THREE.MathUtils.randFloat(0.055, 0.15);
-      }
-
-      const particleTexture = (() => {
-        const dot = document.createElement('canvas');
-        dot.width = 64;
-        dot.height = 64;
-        const dotCtx = dot.getContext('2d');
-        const gradient = dotCtx.createRadialGradient(32, 32, 0, 32, 32, 32);
-        gradient.addColorStop(0, 'rgba(255,255,255,1)');
-        gradient.addColorStop(0.24, 'rgba(255,255,255,0.82)');
-        gradient.addColorStop(0.58, 'rgba(255,255,255,0.24)');
-        gradient.addColorStop(1, 'rgba(255,255,255,0)');
-        dotCtx.fillStyle = gradient;
-        dotCtx.fillRect(0, 0, 64, 64);
-        return new THREE.CanvasTexture(dot);
-      })();
-
-      const particleGeometry = new THREE.BufferGeometry();
-      particleGeometry.setAttribute('position', new THREE.BufferAttribute(currentPositions, 3));
-      particleGeometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
-      particleGeometry.setAttribute('size', new THREE.BufferAttribute(sizes, 1));
-
-      const particleMaterial = new THREE.ShaderMaterial({
-        uniforms: {
-          pointTexture: { value: particleTexture },
-          uOpacity: { value: 0.92 },
-        },
-        vertexShader: `
-          attribute float size;
-          varying vec3 vColor;
-          void main() {
-            vColor = color;
-            vec4 mvPosition = modelViewMatrix * vec4(position, 1.0);
-            gl_PointSize = size * (430.0 / -mvPosition.z);
-            gl_Position = projectionMatrix * mvPosition;
-          }
-        `,
-        fragmentShader: `
-          uniform sampler2D pointTexture;
-          uniform float uOpacity;
-          varying vec3 vColor;
-          void main() {
-            float alpha = texture2D(pointTexture, gl_PointCoord).a;
-            if (alpha < 0.04) discard;
-            gl_FragColor = vec4(vColor * 1.22, alpha * uOpacity);
-          }
-        `,
-        blending: THREE.AdditiveBlending,
-        depthWrite: false,
-        transparent: true,
-        vertexColors: true,
-      });
-
-      const particleSystem = new THREE.Points(particleGeometry, particleMaterial);
-      system.add(particleSystem);
-
-      const resizeHeroScene = () => {
-        const rect = heroCanvas.getBoundingClientRect();
-        const width = Math.max(1, Math.floor(rect.width));
-        const height = Math.max(1, Math.floor(rect.height));
-        renderer.setSize(width, height, false);
-        camera.aspect = width / height;
-        camera.updateProjectionMatrix();
-      };
-
-      const resizeObserver = new ResizeObserver(resizeHeroScene);
-      resizeObserver.observe(heroCanvas);
-      resizeHeroScene();
-
-      const clock = new THREE.Clock();
-      function animateHeroScene() {
-        const elapsed = clock.getElapsedTime();
-        system.rotation.y = elapsed * 0.18;
-        system.rotation.x = -0.08 + Math.sin(elapsed * 0.32) * 0.08;
-        system.rotation.z = -0.16 + Math.sin(elapsed * 0.24) * 0.06;
-        system.scale.setScalar(1 + Math.sin(elapsed * 0.7) * 0.018);
-        particleMaterial.uniforms.uOpacity.value = 0.82 + Math.sin(elapsed * 1.3) * 0.08;
-        renderer.render(scene, camera);
-        requestAnimationFrame(animateHeroScene);
-      }
-      animateHeroScene();
     }
   </script>
+
 </body>
 
 </html>
