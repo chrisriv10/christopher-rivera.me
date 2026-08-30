@@ -1,24 +1,55 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Christopher Rivera</title>
-  <meta name="description" content="Christopher Rivera — programmer, web developer, robotics leader, and engineering student based in Chicago." />
+  <title>Christopher Rivera | Programmer, Developer &amp; Robotics</title>
+  <meta name="description" content="Christopher Rivera — programmer, web developer, and robotics leader building projects across security, games, and the web." />
   <link rel="canonical" href="https://christopher-rivera.me/" />
+  <meta name="theme-color" content="#05050f" />
   <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Christopher Rivera" />
   <meta property="og:url" content="https://christopher-rivera.me/" />
-  <meta property="og:title" content="Christopher Rivera — Programmer · Web Developer" />
-  <meta property="og:description" content="Selected work across security, games, robotics, and the web." />
+  <meta property="og:title" content="Christopher Rivera | Programmer, Developer &amp; Robotics" />
+  <meta property="og:description" content="Christopher Rivera — programmer, web developer, and robotics leader building projects across security, games, and the web." />
   <meta property="og:image" content="https://christopher-rivera.me/images/og.png" />
   <meta property="og:image:width" content="1731" />
   <meta property="og:image:height" content="909" />
   <meta property="og:image:alt" content="Christopher Rivera portfolio with a blue particle sphere on a dark cosmic background." />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Christopher Rivera — Programmer · Web Developer" />
-  <meta name="twitter:description" content="Selected work across security, games, robotics, and the web." />
+  <meta name="twitter:site" content="@chrisriv10" />
+  <meta name="twitter:title" content="Christopher Rivera | Programmer, Developer &amp; Robotics" />
+  <meta name="twitter:description" content="Christopher Rivera — programmer, web developer, and robotics leader building projects across security, games, and the web." />
   <meta name="twitter:image" content="https://christopher-rivera.me/images/og.png" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "url": "https://christopher-rivera.me/",
+    "name": "Christopher Rivera — Portfolio",
+    "mainEntity": {
+      "@type": "Person",
+      "name": "Christopher Rivera",
+      "url": "https://christopher-rivera.me/",
+      "sameAs": [
+        "https://github.com/chrisriv10",
+        "https://www.linkedin.com/in/christopher-rivera-cr/"
+      ],
+      "knowsAbout": [
+        "Software Development",
+        "Web Development",
+        "Cybersecurity",
+        "Robotics",
+        "Java",
+        "JavaScript",
+        "Python",
+        "C++",
+        "Computer Science"
+      ]
+    }
+  }
+  </script>
   <script>
     if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       document.documentElement.classList.add('motion-pending');
@@ -27,11 +58,14 @@
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+  <link rel="preconnect" href="https://unpkg.com" />
   <link rel="icon" type="image/png" href="images/favicon.png">
   <link
     href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;1,9..40,300&display=swap"
     rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"></noscript>
   <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.26/dist/lenis.css">
   <style>
     *,
@@ -1742,7 +1776,7 @@
 
   <!-- ── Navigation ── -->
   <nav aria-label="Primary navigation">
-    <a href="#" class="nav-logo">Christopher Rivera</a>
+    <a href="#home" class="nav-logo">Christopher Rivera</a>
     <a href="#contact" class="nav-logo promo-line" data-i18n="promo">Offering free website designs - let's build
       something great together.</a>
     <div class="nav-actions">
@@ -1761,7 +1795,7 @@
   </nav>
 
   <!-- ── Hero ── -->
-  <section class="hero">
+  <section class="hero" id="home" aria-label="Introduction">
     <div class="hero-glow"></div>
     <div class="hero-content">
       <div class="hero-eyebrow">Programmer · Web Developer</div>
@@ -2079,17 +2113,17 @@
     <h2 class="reveal">Let's connect<br>and do something <em>great</em>.</h2>
     <p class="reveal">Have an opportunity, idea, or just want to talk? I'm always open to a good conversation.</p>
     <div class="contact-links reveal">
-      <a href="mailto:chrisrivera.5128@gmail.com" class="btn btn-primary">chrisrivera.5128@gmail.com ↗</a>
-      <a href="https://github.com/chrisriv10" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">GitHub <span class="btn-arrow" aria-hidden="true">↗</span></a>
-      <a href="https://www.linkedin.com/in/christopher-rivera-cr/" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">LinkedIn <span class="btn-arrow" aria-hidden="true">↗</span></a>
-      <a href="https://instagram.com/chrisriv_10" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">Instagram <span class="btn-arrow" aria-hidden="true">↗</span></a>
+      <a href="mailto:chrisrivera.5128@gmail.com" class="btn btn-primary" aria-label="Send email to Christopher Rivera">chrisrivera.5128@gmail.com ↗</a>
+      <a href="https://github.com/chrisriv10" target="_blank" rel="noopener noreferrer" class="btn btn-ghost" aria-label="Christopher Rivera on GitHub (opens in new tab)">GitHub <span class="btn-arrow" aria-hidden="true">↗</span></a>
+      <a href="https://www.linkedin.com/in/christopher-rivera-cr/" target="_blank" rel="noopener noreferrer" class="btn btn-ghost" aria-label="Christopher Rivera on LinkedIn (opens in new tab)">LinkedIn <span class="btn-arrow" aria-hidden="true">↗</span></a>
+      <a href="https://instagram.com/chrisriv_10" target="_blank" rel="noopener noreferrer" class="btn btn-ghost" aria-label="Christopher Rivera on Instagram (opens in new tab)">Instagram <span class="btn-arrow" aria-hidden="true">↗</span></a>
     </div>
   </section>
 
   <!-- ── Footer ── -->
   <footer>
     <span>© 2026 Christopher Rivera.</span>
-    <span><a href="#"><span data-i18n="backTop">Back to top</span> <span class="btn-arrow" aria-hidden="true">↑</span></a></span>
+    <span><a href="#home"><span data-i18n="backTop">Back to top</span> <span class="btn-arrow" aria-hidden="true">↑</span></a></span>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
