@@ -1281,20 +1281,14 @@
       --card-rgb: 200, 160, 90;
     }
 
-    .project-soterios {
-      grid-column: span 7;
-    }
-
-    .project-isles {
-      grid-column: span 5;
-    }
-
     .project-card-feature {
-      min-height: 380px;
+      min-height: 250px;
+      box-shadow: 0 0 16px rgba(var(--card-rgb), 0.12), inset 0 0 16px rgba(var(--card-rgb), 0.05);
+      border-color: rgba(var(--card-rgb), 0.35);
     }
 
     .project-card-support {
-      min-height: 280px;
+      min-height: 250px;
     }
 
     .project-card:hover,
@@ -1307,7 +1301,7 @@
 
     .project-visual {
       position: relative;
-      min-height: 118px;
+      min-height: 90px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1318,26 +1312,22 @@
         linear-gradient(135deg, rgba(74, 127, 255, .08), rgba(11, 11, 26, .3));
     }
 
-    .project-card-feature .project-visual {
-      min-height: 140px;
-    }
-
     .project-visual::before,
     .project-visual::after {
       content: '';
       position: absolute;
       top: 50%;
       left: 50%;
-      width: 150px;
-      height: 150px;
+      width: 120px;
+      height: 120px;
       border: 1px solid rgba(107, 159, 255, .12);
       border-radius: 50%;
       transform: translate(-50%, -50%);
     }
 
     .project-visual::after {
-      width: 96px;
-      height: 96px;
+      width: 76px;
+      height: 76px;
     }
 
     .project-visual i {
@@ -1351,14 +1341,10 @@
       place-items: center;
       line-height: 1;
       color: rgba(132, 216, 255, .78);
-      font-size: 2.2rem;
+      font-size: 1.8rem;
       transform: translate(-50%, -50%);
       transform-origin: center;
       transition: transform .45s cubic-bezier(.22, 1, .36, 1), color .3s ease;
-    }
-
-    .project-card-feature .project-visual i {
-      font-size: 3rem;
     }
 
     .project-card:hover .project-visual i,
@@ -1381,11 +1367,7 @@
       flex: 1;
       display: flex;
       flex-direction: column;
-      padding: 24px;
-    }
-
-    .project-card-feature .project-body {
-      padding: 28px;
+      padding: 20px;
     }
 
     .project-kicker {
@@ -1397,10 +1379,10 @@
     }
 
     .project-card h3 {
-      margin-bottom: 14px;
+      margin-bottom: 12px;
       color: #fff;
       font-family: 'Playfair Display', serif;
-      font-size: clamp(1.55rem, 2.7vw, 2.35rem);
+      font-size: clamp(1.35rem, 2.5vw, 2.1rem);
       font-weight: 400;
       line-height: 1.12;
       transition: transform .4s cubic-bezier(.22, 1, .36, 1), color .3s ease;
@@ -1409,8 +1391,8 @@
     .project-desc {
       max-width: 650px;
       color: var(--muted);
-      font-size: .92rem;
-      line-height: 1.65;
+      font-size: .88rem;
+      line-height: 1.6;
     }
 
     .project-tech {
@@ -1581,16 +1563,15 @@
         white-space: normal;
       }
 
-      .project-soterios,
-      .project-isles,
-      .project-card-support {
+      .project-card-support,
+      .project-card-feature {
         grid-column: span 6;
-        min-height: 380px;
+        min-height: 250px;
       }
 
       .project-card-feature .project-visual,
       .project-visual {
-        min-height: 112px;
+        min-height: 90px;
       }
     }
 
@@ -1690,26 +1671,21 @@
         margin-bottom: 40px;
       }
 
-      .project-soterios,
-      .project-isles,
-      .project-card-support {
+      .project-card {
         grid-column: 1 / -1;
         min-height: 0;
       }
 
-      .project-card-feature .project-body,
       .project-body {
-        padding: 26px 22px;
+        padding: 20px 18px;
       }
 
-      .project-card-feature .project-visual,
       .project-visual {
-        min-height: 100px;
+        min-height: 80px;
       }
 
-      .project-card-feature .project-visual i,
       .project-visual i {
-        font-size: 2.2rem;
+        font-size: 1.6rem;
       }
     }
 
