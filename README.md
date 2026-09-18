@@ -1,12 +1,11 @@
 <p align="center">
-  <strong>Christopher Rivera — Programmer, Developer & Robotics</strong><br/>
+  <strong>Christopher Rivera — Programmer, Developer & Robotics Enthusiast</strong><br/>
   <em>Building projects across security, games, and the web.</em>
 </p>
 
 <p align="center">
   <a href="https://christopher-rivera.me/"><img src="https://img.shields.io/website?url=https%3A%2F%2Fchristopher-rivera.me&style=flat-square&label=Website&color=4a7fff" alt="Website Status" /></a>
   <a href="https://github.com/chrisriv10/christopher-rivera.me/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue?style=flat-square" alt="MIT License" /></a>
-  <a href="https://github.com/chrisriv10/christopher-rivera.me/actions"><img src="https://img.shields.io/github/actions/workflow/status/chrisriv10/christopher-rivera.me/deploy.yml?style=flat-square&label=Deploy" alt="Deploy Status" /></a>
   <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white" alt="HTML5" />
   <img src="https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white" alt="CSS3" />
   <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black" alt="JavaScript" />
@@ -42,8 +41,8 @@
 
 | Project | Type | Description | Tech | Links |
 |---------|------|-------------|------|-------|
-| **Soterios** | Featured · Open Source | Local-first desktop security suite — malware scanning, system audits, firewall, credential safety, VPN, AI assistant | Electron, JavaScript, Node.js, Rust, ClamAV | [GitHub](https://github.com/chrisriv10/Soterios) |
-| **Isles of Inconstance** | Featured · Game | Farm, fight, explore a procedurally generated island — every crop, animal, world is unique | Godot 4, GDScript, Procedural Generation | [Play](https://chrisriv10.itch.io/isles-of-inconstance) · [GitHub](https://github.com/chrisriv10/Isles-of-Inconstance) |
+| **Soterios** | Featured · Open Source | Local-first desktop security suite — malware scanning, system audits, maintenance | JavaScript, Electron, Node.js | [GitHub](https://github.com/chrisriv10/Soterios) |
+| **Isles of Inconstance** | Featured · Game | Farm, fight, explore a procedurally generated island — every crop, animal, world is unique | Godot, GDScript, Procedural Generation | [Play](https://chrisriv10.itch.io/isles-of-inconstance) · [GitHub](https://github.com/chrisriv10/Isles-of-Inconstance) |
 | **Monty Pythons FRC 2151** | Robotics · Web | Official website for FRC Team 2151 — team info, competition history, season updates | HTML, CSS, JavaScript | [Live](https://frc2151.tech/) · [GitHub](https://github.com/chrisriv10/montypythons2151.github.io) |
 | **Personal Website** | Interactive · Web | This portfolio — cosmic visual system with WebGL, scroll-directed motion | Three.js, GSAP, Lenis | [Live](https://christopher-rivera.me) · [GitHub](https://github.com/chrisriv10/chrisriv10.github.io) |
 | **Codebase Colony** | Dev Tool · Desktop | Turns a real repository into an explorable isometric settlement — code as city | TypeScript, Electron, React | [GitHub](https://github.com/chrisriv10/CodebaseColony) |
@@ -60,7 +59,8 @@
 
 | Skill | Description |
 |-------|-------------|
-| **JavaScript / TypeScript / Node.js** | Building full-stack web apps, Electron desktop apps, and modern tooling |
+| **Java & Kotlin** | Building structured, object-oriented applications for robotics, desktop, and backend systems |
+| **TypeScript & JavaScript** | Developing type-safe, scalable front-end and full-stack applications with modern tooling |
 | **Python** | Automating workflows, scripting robotics controls, and building data-driven tools |
 | **C++ & Systems** | Writing performance-critical code for robotics, game engines, and embedded contexts |
 | **Web Fundamentals** | Crafting semantic HTML, responsive CSS layouts, and accessible interfaces from the ground up |
@@ -79,11 +79,11 @@
 |----------|--------------|
 | **Core** | HTML5, CSS3 (custom properties, Grid, Flexbox), Vanilla JavaScript (ES6+) |
 | **Animation & Motion** | GSAP + ScrollTrigger, Lenis (smooth scroll) |
-| **3D Graphics** | Three.js (r155+) — custom shaders, particle systems, post-processing |
+| **3D Graphics** | Three.js — custom shaders, particle systems, post-processing |
 | **Fonts** | Playfair Display (headings), DM Sans (UI/body) via Google Fonts |
 | **Icons** | Font Awesome 6.5 (CDN, print-optimized loading) |
 | **SEO & Meta** | Open Graph, Twitter Cards, Schema.org `ProfilePage` + `Person` JSON-LD, canonical URLs, `sitemap.xml`, `robots.txt` |
-| **Deployment** | GitHub Pages (custom domain: `christopher-rivera.me`), GitHub Actions CI/CD |
+| **Deployment** | GitHub Pages (custom domain: `christopher-rivera.me`) |
 | **Performance** | `preconnect` hints, `media="print"` onload pattern for Font Awesome, `prefers-reduced-motion` respect |
 
 ---
@@ -112,19 +112,17 @@
 - **About** — Bio, stats, tech stack cloud
 - **Extracurriculars** — Robotics leadership, competitions, volunteering
 - **Projects** — 9 featured projects with visual cards, tech tags, live/GitHub links
-- **Skills** — 8 categorized skills with icons and descriptions
-- **Contact** — Email, GitHub, LinkedIn, resume download
+- **Skills** — 9 categorized skills with icons and descriptions
+- **Contact** — Email, GitHub, LinkedIn, Instagram, resume download
 
 ---
 
 ## Deployment
 
-Deployed automatically to **GitHub Pages** via GitHub Actions on push to `main`.
+Deployed to **GitHub Pages** with custom domain `christopher-rivera.me` via `CNAME`.
 
 - **Live site**: https://christopher-rivera.me/
 - **Custom domain**: Configured via `CNAME` file
-- **Workflow**: `.github/workflows/deploy.yml` (build → deploy)
-- **SPA fallback**: `404.html` redirect for client-side routing (if added)
 
 ---
 
