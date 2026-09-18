@@ -40,13 +40,17 @@
 
 ## Projects
 
-| Project | Description | Tech | Link |
-|---------|-------------|------|------|
-| **Soterios** | Open-source, local-first Windows security & maintenance suite — malware scanning, process inspection, firewall management, credential safety, VPN, AI assistant, and more | Electron, TypeScript, React, Rust, ClamAV, Tauri-like architecture | [GitHub](https://github.com/chrisriv10/Soterios) |
-| **Isles of Mara** | 3D survival game with procedural islands, resource gathering, crafting, and base building | Godot 4, GDScript, C# | [GitHub](https://github.com/chrisriv10/Isles-of-Mara) |
-| **Los Cimientos** | Rhythm-based platformer with original soundtrack and procedural level generation | Godot 4, GDScript, C# | [GitHub](https://github.com/chrisriv10/Los-Cimientos) |
-| **Planetfall** | Atmospheric space exploration game with planetary landing and exploration | Godot 4, GDScript, C# | [GitHub](https://github.com/chrisriv10/Planetfall) |
-| **JourneyBread** | Cozy narrative game about baking and delivery in a whimsical world | Godot 4, GDScript, C# | [GitHub](https://github.com/chrisriv10/JourneyBread) |
+| Project | Type | Description | Tech | Links |
+|---------|------|-------------|------|-------|
+| **Soterios** | Featured · Open Source | Local-first desktop security suite — malware scanning, system audits, firewall, credential safety, VPN, AI assistant | Electron, JavaScript, Node.js, Rust, ClamAV | [GitHub](https://github.com/chrisriv10/Soterios) |
+| **Isles of Inconstance** | Featured · Game | Farm, fight, explore a procedurally generated island — every crop, animal, world is unique | Godot 4, GDScript, Procedural Generation | [Play](https://chrisriv10.itch.io/isles-of-inconstance) · [GitHub](https://github.com/chrisriv10/Isles-of-Inconstance) |
+| **Monty Pythons FRC 2151** | Robotics · Web | Official website for FRC Team 2151 — team info, competition history, season updates | HTML, CSS, JavaScript | [Live](https://frc2151.tech/) · [GitHub](https://github.com/chrisriv10/montypythons2151.github.io) |
+| **Personal Website** | Interactive · Web | This portfolio — cosmic visual system with WebGL, scroll-directed motion | Three.js, GSAP, Lenis | [Live](https://christopher-rivera.me) · [GitHub](https://github.com/chrisriv10/chrisriv10.github.io) |
+| **Codebase Colony** | Dev Tool · Desktop | Turns a real repository into an explorable isometric settlement — code as city | TypeScript, Electron, React | [GitHub](https://github.com/chrisriv10/CodebaseColony) |
+| **Web Burrow** | Desktop · 3D Web | Local-first 3D space that turns bookmarks into a cozy explorable world | TypeScript, React, Three.js | [GitHub](https://github.com/chrisriv10/WebBurrow) |
+| **Los Cimientos Website** | Business · Web | Event website for Los Cimientos de Chicago — group showcase, booking | HTML, CSS, JavaScript | [GitHub](https://github.com/chrisriv10/loscimientos) |
+| **Planetfall** | Game · Multiplayer | Browser-based 3D party game on spherical planets — grapple, repair, blast rivals | TypeScript, Three.js, Socket.IO | [GitHub](https://github.com/chrisriv10/Planetfall) |
+| **Journey to Bread** | WebGL · Experience | Scroll-driven WebGL passage from field to loaf — nine transformations of one grain | Three.js, GSAP, TypeScript | [Live](https://chrisriv10.github.io/JourneytoBread/) · [GitHub](https://github.com/chrisriv10/JourneytoBread) |
 
 ---
 
@@ -107,7 +111,7 @@
 - **Hero** — Animated particle sphere, name, title, CTA
 - **About** — Bio, stats, tech stack cloud
 - **Extracurriculars** — Robotics leadership, competitions, volunteering
-- **Projects** — 5 featured projects with visual cards, tech tags, GitHub links
+- **Projects** — 9 featured projects with visual cards, tech tags, live/GitHub links
 - **Skills** — 8 categorized skills with icons and descriptions
 - **Contact** — Email, GitHub, LinkedIn, resume download
 
