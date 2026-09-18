@@ -1,5 +1,5 @@
 <p align="center">
-  <strong>Christopher Rivera — Programmer, Developer & Robotics Enthusiast</strong><br/>
+  <strong>Christopher Rivera — Programmer, Developer & Robotics Leader</strong><br/>
   <em>Building projects across security, games, and the web.</em>
 </p>
 
@@ -31,6 +31,8 @@
 ## Stats
 
 <p align="center">
+  <img src="https://img.shields.io/badge/GPA-4.0-4a7fff?style=flat-square" alt="4.0 GPA" />
+  <img src="https://img.shields.io/badge/Awards_Won-10%2B-4a7fff?style=flat-square" alt="10+ Awards Won" />
   <img src="https://img.shields.io/badge/Languages_&_Frameworks-10%2B-4a7fff?style=flat-square" alt="10+ Languages & Frameworks" />
   <img src="https://img.shields.io/badge/Years_Experience-4%2B-4a7fff?style=flat-square" alt="4+ Years Experience" />
 </p>
@@ -113,7 +115,7 @@
 - **Extracurriculars** — Robotics leadership, competitions, volunteering
 - **Projects** — 9 featured projects with visual cards, tech tags, live/GitHub links
 - **Skills** — 9 categorized skills with icons and descriptions
-- **Contact** — Email, GitHub, LinkedIn, Instagram, resume download
+- **Contact** — Email, GitHub, LinkedIn, Instagram
 
 ---
 
